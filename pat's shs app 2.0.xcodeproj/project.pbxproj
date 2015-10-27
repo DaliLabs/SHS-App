@@ -7,13 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9D61D95E1BCC7E3300A0AF0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D95D1BCC7E3300A0AF0F /* AppDelegate.swift */; };
-		9D61D9601BCC7E3300A0AF0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D95F1BCC7E3300A0AF0F /* ViewController.swift */; };
 		9D61D9631BCC7E3300A0AF0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D61D9611BCC7E3300A0AF0F /* Main.storyboard */; };
-		9D61D9651BCC7E3300A0AF0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D61D9641BCC7E3300A0AF0F /* Assets.xcassets */; };
 		9D61D9681BCC7E3300A0AF0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D61D9661BCC7E3300A0AF0F /* LaunchScreen.storyboard */; };
 		9D61D9731BCC7E3300A0AF0F /* pat_s_shs_app_2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D9721BCC7E3300A0AF0F /* pat_s_shs_app_2_0Tests.swift */; };
 		9D61D97E1BCC7E3400A0AF0F /* pat_s_shs_app_2_0UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D97D1BCC7E3400A0AF0F /* pat_s_shs_app_2_0UITests.swift */; };
+		9D61D98C1BCC7EF900A0AF0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D98B1BCC7EF900A0AF0F /* AppDelegate.swift */; };
+		9D61D98E1BCC7F9900A0AF0F /* BellTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D98D1BCC7F9900A0AF0F /* BellTabVC.swift */; };
+		9D61D9901BCC7F9F00A0AF0F /* DirectoryTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D98F1BCC7F9F00A0AF0F /* DirectoryTabVC.swift */; };
+		9D61D9941BCC7FB200A0AF0F /* HomeTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D9931BCC7FB200A0AF0F /* HomeTabVC.swift */; };
+		9D61D9961BCC7FB800A0AF0F /* MeTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D9951BCC7FB800A0AF0F /* MeTabVC.swift */; };
+		9D61D9981BCC7FBE00A0AF0F /* NewsTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D9971BCC7FBE00A0AF0F /* NewsTabVC.swift */; };
+		9D61D99A1BCC7FC600A0AF0F /* PeriodTimesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D9991BCC7FC600A0AF0F /* PeriodTimesCell.swift */; };
+		9D61D99C1BCC802200A0AF0F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D61D99B1BCC802200A0AF0F /* Images.xcassets */; };
+		9D61D9A11BCC818C00A0AF0F /* TabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D9A01BCC818C00A0AF0F /* TabBarControllerViewController.swift */; };
+		9DF06D361BDD7F0200E34C75 /* AnnouncementCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF06D351BDD7F0200E34C75 /* AnnouncementCellTableViewCell.swift */; };
+		9DF06D3D1BDD7FBD00E34C75 /* EventsCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF06D3C1BDD7FBD00E34C75 /* EventsCellTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +43,7 @@
 
 /* Begin PBXFileReference section */
 		9D61D95A1BCC7E3300A0AF0F /* pat's shs app 2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pat's shs app 2.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D61D95D1BCC7E3300A0AF0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9D61D95F1BCC7E3300A0AF0F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9D61D9621BCC7E3300A0AF0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9D61D9641BCC7E3300A0AF0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D61D9671BCC7E3300A0AF0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D61D9691BCC7E3300A0AF0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D61D96E1BCC7E3300A0AF0F /* pat's shs app 2.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pat's shs app 2.0Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +52,18 @@
 		9D61D9791BCC7E3300A0AF0F /* pat's shs app 2.0UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "pat's shs app 2.0UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D61D97D1BCC7E3400A0AF0F /* pat_s_shs_app_2_0UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pat_s_shs_app_2_0UITests.swift; sourceTree = "<group>"; };
 		9D61D97F1BCC7E3400A0AF0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D61D98B1BCC7EF900A0AF0F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9D61D98D1BCC7F9900A0AF0F /* BellTabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BellTabVC.swift; sourceTree = "<group>"; };
+		9D61D98F1BCC7F9F00A0AF0F /* DirectoryTabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryTabVC.swift; sourceTree = "<group>"; };
+		9D61D9931BCC7FB200A0AF0F /* HomeTabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabVC.swift; sourceTree = "<group>"; };
+		9D61D9951BCC7FB800A0AF0F /* MeTabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeTabVC.swift; sourceTree = "<group>"; };
+		9D61D9971BCC7FBE00A0AF0F /* NewsTabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTabVC.swift; sourceTree = "<group>"; };
+		9D61D9991BCC7FC600A0AF0F /* PeriodTimesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodTimesCell.swift; sourceTree = "<group>"; };
+		9D61D99B1BCC802200A0AF0F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9D61D9A01BCC818C00A0AF0F /* TabBarControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarControllerViewController.swift; path = ../TabBarControllerViewController.swift; sourceTree = "<group>"; };
+		9D67F5A61BD3767B009C7493 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		9DF06D351BDD7F0200E34C75 /* AnnouncementCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnnouncementCellTableViewCell.swift; path = ../AnnouncementCellTableViewCell.swift; sourceTree = "<group>"; };
+		9DF06D3C1BDD7FBD00E34C75 /* EventsCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsCellTableViewCell.swift; path = ../EventsCellTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +94,7 @@
 		9D61D9511BCC7E3300A0AF0F = {
 			isa = PBXGroup;
 			children = (
+				9D67F5A61BD3767B009C7493 /* MyPlayground.playground */,
 				9D61D95C1BCC7E3300A0AF0F /* pat's shs app 2.0 */,
 				9D61D9711BCC7E3300A0AF0F /* pat's shs app 2.0Tests */,
 				9D61D97C1BCC7E3300A0AF0F /* pat's shs app 2.0UITests */,
@@ -97,10 +115,10 @@
 		9D61D95C1BCC7E3300A0AF0F /* pat's shs app 2.0 */ = {
 			isa = PBXGroup;
 			children = (
-				9D61D95D1BCC7E3300A0AF0F /* AppDelegate.swift */,
-				9D61D95F1BCC7E3300A0AF0F /* ViewController.swift */,
+				9D61D99F1BCC812000A0AF0F /* All Tabs */,
+				9D61D98B1BCC7EF900A0AF0F /* AppDelegate.swift */,
 				9D61D9611BCC7E3300A0AF0F /* Main.storyboard */,
-				9D61D9641BCC7E3300A0AF0F /* Assets.xcassets */,
+				9D61D99B1BCC802200A0AF0F /* Images.xcassets */,
 				9D61D9661BCC7E3300A0AF0F /* LaunchScreen.storyboard */,
 				9D61D9691BCC7E3300A0AF0F /* Info.plist */,
 			);
@@ -123,6 +141,62 @@
 				9D61D97F1BCC7E3400A0AF0F /* Info.plist */,
 			);
 			path = "pat's shs app 2.0UITests";
+			sourceTree = "<group>";
+		};
+		9D61D99F1BCC812000A0AF0F /* All Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				9D61D9A01BCC818C00A0AF0F /* TabBarControllerViewController.swift */,
+				9DF06D3B1BDD7F5F00E34C75 /* PeriodTab */,
+				9DF06D371BDD7F1600E34C75 /* HomeTab */,
+				9DF06D381BDD7F2C00E34C75 /* NewsTab */,
+				9DF06D391BDD7F3600E34C75 /* DirectoryTab */,
+				9DF06D3A1BDD7F4800E34C75 /* MeTab */,
+			);
+			name = "All Tabs";
+			sourceTree = "<group>";
+		};
+		9DF06D371BDD7F1600E34C75 /* HomeTab */ = {
+			isa = PBXGroup;
+			children = (
+				9D61D9931BCC7FB200A0AF0F /* HomeTabVC.swift */,
+				9DF06D351BDD7F0200E34C75 /* AnnouncementCellTableViewCell.swift */,
+				9DF06D3C1BDD7FBD00E34C75 /* EventsCellTableViewCell.swift */,
+			);
+			name = HomeTab;
+			sourceTree = "<group>";
+		};
+		9DF06D381BDD7F2C00E34C75 /* NewsTab */ = {
+			isa = PBXGroup;
+			children = (
+				9D61D9971BCC7FBE00A0AF0F /* NewsTabVC.swift */,
+			);
+			name = NewsTab;
+			sourceTree = "<group>";
+		};
+		9DF06D391BDD7F3600E34C75 /* DirectoryTab */ = {
+			isa = PBXGroup;
+			children = (
+				9D61D98F1BCC7F9F00A0AF0F /* DirectoryTabVC.swift */,
+			);
+			name = DirectoryTab;
+			sourceTree = "<group>";
+		};
+		9DF06D3A1BDD7F4800E34C75 /* MeTab */ = {
+			isa = PBXGroup;
+			children = (
+				9D61D9951BCC7FB800A0AF0F /* MeTabVC.swift */,
+			);
+			name = MeTab;
+			sourceTree = "<group>";
+		};
+		9DF06D3B1BDD7F5F00E34C75 /* PeriodTab */ = {
+			isa = PBXGroup;
+			children = (
+				9D61D98D1BCC7F9900A0AF0F /* BellTabVC.swift */,
+				9D61D9991BCC7FC600A0AF0F /* PeriodTimesCell.swift */,
+			);
+			name = PeriodTab;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +266,7 @@
 				TargetAttributes = {
 					9D61D9591BCC7E3300A0AF0F = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = U7GHKH5D2P;
 					};
 					9D61D96D1BCC7E3300A0AF0F = {
 						CreatedOnToolsVersion = 7.0;
@@ -229,7 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D61D9681BCC7E3300A0AF0F /* LaunchScreen.storyboard in Resources */,
-				9D61D9651BCC7E3300A0AF0F /* Assets.xcassets in Resources */,
+				9D61D99C1BCC802200A0AF0F /* Images.xcassets in Resources */,
 				9D61D9631BCC7E3300A0AF0F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,8 +330,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D61D9601BCC7E3300A0AF0F /* ViewController.swift in Sources */,
-				9D61D95E1BCC7E3300A0AF0F /* AppDelegate.swift in Sources */,
+				9DF06D361BDD7F0200E34C75 /* AnnouncementCellTableViewCell.swift in Sources */,
+				9D61D99A1BCC7FC600A0AF0F /* PeriodTimesCell.swift in Sources */,
+				9D61D9901BCC7F9F00A0AF0F /* DirectoryTabVC.swift in Sources */,
+				9D61D9941BCC7FB200A0AF0F /* HomeTabVC.swift in Sources */,
+				9DF06D3D1BDD7FBD00E34C75 /* EventsCellTableViewCell.swift in Sources */,
+				9D61D98C1BCC7EF900A0AF0F /* AppDelegate.swift in Sources */,
+				9D61D98E1BCC7F9900A0AF0F /* BellTabVC.swift in Sources */,
+				9D61D9961BCC7FB800A0AF0F /* MeTabVC.swift in Sources */,
+				9D61D9A11BCC818C00A0AF0F /* TabBarControllerViewController.swift in Sources */,
+				9D61D9981BCC7FBE00A0AF0F /* NewsTabVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,7 +479,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "pat's shs app 2.0/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "DaliLabs.Inc.pat-s-shs-app-2-0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -407,7 +492,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "pat's shs app 2.0/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "DaliLabs.Inc.pat-s-shs-app-2-0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -481,6 +568,7 @@
 				9D61D9841BCC7E3400A0AF0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9D61D9851BCC7E3400A0AF0F /* Build configuration list for PBXNativeTarget "pat's shs app 2.0Tests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +577,7 @@
 				9D61D9871BCC7E3400A0AF0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9D61D9881BCC7E3400A0AF0F /* Build configuration list for PBXNativeTarget "pat's shs app 2.0UITests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +586,7 @@
 				9D61D98A1BCC7E3400A0AF0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
