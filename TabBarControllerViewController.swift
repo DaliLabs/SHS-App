@@ -6,6 +6,7 @@
 //  Copyright © 2015 Dali Labs, Inc. All rights reserved.
 //
 
+
 import UIKit
 
 class TabBarControllerViewController: UITabBarController {
@@ -20,7 +21,13 @@ class TabBarControllerViewController: UITabBarController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
+    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+        if(item.title == "News"){
+            print("selected news")
+
+        }
+    }
 
     /*
     // MARK: - Navigation

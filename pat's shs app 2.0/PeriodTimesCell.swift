@@ -3,7 +3,6 @@
 //  Pat'sshsapp
 //
 //  Created by Patrick Li on 10/11/15.
-//  Copyright © 2015 Evan Dekhayser. All rights reserved.
 //
 
 import UIKit
@@ -12,9 +11,11 @@ class PeriodTimesCell: UITableViewCell {
 
    @IBOutlet weak var periodLabel: UILabel!
    @IBOutlet weak var timesLabel: UILabel!
+   @IBOutlet weak var progressBar: UIProgressView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.progressBar.hidden = true
         // Initialization code
     }
 
@@ -23,5 +24,15 @@ class PeriodTimesCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+
+   
+   func showProgressBar()
+   {
+      progressBar.hidden = false
+   }
+   func hideProgressBar()
+   {
+      progressBar.hidden = true
+   }
 
 }
