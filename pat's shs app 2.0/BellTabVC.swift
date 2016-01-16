@@ -1,23 +1,20 @@
-//
-//  BellTabVC.swift
-//  Pat'sshsapp
-//
-//  Created by Patrick Li on 10/11/15.
-//
+
+
+
 
 import UIKit
 
 
 
 class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-
+    
+    
     @IBOutlet weak var segmentBarDays: UISegmentedControl!
     @IBOutlet weak var timeBar: UILabel!
     @IBOutlet weak var timeBarLabel: UILabel!
     @IBOutlet weak var segmentBar: UILabel!
     @IBOutlet weak var tableView1: UITableView!
-
+    
     var cell: PeriodTimesCell!
     var timesArray: [String]! = []
     var mondayTimesArray: [String]! = []
@@ -38,7 +35,7 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var endMin = 0
     var currTableView = 2
     var dayOfWeek = 0
-
+    
     // times
     var mondayHours: [Int] = []
     var mondayMinutes: [Int] = []
@@ -50,23 +47,23 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var thursdayMinutes: [Int] = []
     var fridayHours: [Int] = []
     var fridayMinutes: [Int] = []
-
+    
     var mondayMintuesTotal : [Int] = []
     var tuesdayMinutesTotal : [Int] = []
     var wednesdayMinutesTotal : [Int] = []
     var thursdayMinutesTotal : [Int] = []
     var fridayMinutesTotal : [Int] = []
-
+    
     var counter: Float = 0
-
-   
-
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView1.delegate = self
         tableView1.dataSource = self
-
+        
         date = NSDate()
         calendar = NSCalendar.currentCalendar()
         var components = calendar.components(NSCalendarUnit.Year.union(NSCalendarUnit.Minute).union(NSCalendarUnit.Hour).union(NSCalendarUnit.Month).union(NSCalendarUnit.Day).union(NSCalendarUnit.Second), fromDate: date)
@@ -76,7 +73,7 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         var month = components.month
         var year = components.year
         var day = components.day
-
+        
         let currDate = "\(year)-\(month)-\(day)"
         dayOfWeek = getDayOfWeek(currDate)
         currTableView = dayOfWeek
@@ -87,12 +84,12 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         else if(dayOfWeek == 3){
             segmentBarDays.selectedSegmentIndex = 1
             setTableView("T")
-
+            
         }
         else if(dayOfWeek == 4){
             segmentBarDays.selectedSegmentIndex = 2
             setTableView("W")
-
+            
         }
         else if(dayOfWeek == 5){
             segmentBarDays.selectedSegmentIndex = 3
@@ -105,7 +102,7 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         else {
             setTableView("M")
         }
-
+        
         tempHour = components.hour
         if(hour > 12){
             tempHour = hour - 12
@@ -117,19 +114,18 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         timeBarLabel.textAlignment = .Center
         scheduledTimerWithTimeInterval()
     }
-
     func scheduledTimerWithTimeInterval(){
         NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("update"), userInfo: nil, repeats: true)
     }
-
+    
     func timeLeft(startMin: Int, endMin: Int) -> Float{
         let totalTime = endMin - startMin
         let currMinIntoPeriod = totalCurrMinutes - startMin
         let fraction: Float = Float(currMinIntoPeriod) / Float(totalTime)
-
+        
         return fraction
     }
-
+    
     func update() {
         date = NSDate()
         calendar = NSCalendar.currentCalendar()
@@ -139,7 +135,7 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         hour = components.hour
         minutes = components.minute
         totalCurrMinutes = hour*60 + minutes
-
+        
         var timeLeftInPeriod: Int
         if(components.weekday == 2){
             for(var i=0; i<mondayTimesArray.count*2; i=i+2){
@@ -214,15 +210,15 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         timeBarLabel.text = "School's Out!"
                     }
                 }
-
+                    
                 else if (totalCurrMinutes < mondayMintuesTotal[0] || totalCurrMinutes >= mondayMintuesTotal[mondayMintuesTotal.count-1]){
                     timeBarLabel.text = "School's Out!"
                 }
             }
-
+            
         }
         else if(components.weekday == 3){
-
+            
             for(var i=0; i<timesArray.count*2; i=i+2){
                 print(i)
                 if(totalCurrMinutes >= tuesdayMinutesTotal[i] && totalCurrMinutes < tuesdayMinutesTotal[i+1]){
@@ -275,15 +271,15 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         timeBarLabel.text = "School's Out!"
                     }
                 }
-
+                    
                 else if (totalCurrMinutes < tuesdayMinutesTotal[0] || totalCurrMinutes >= tuesdayMinutesTotal[tuesdayMinutesTotal.count-1]){
                     timeBarLabel.text = "School's Out!"
                 }
             }
-
+            
         }
         else if(components.weekday == 4){
-
+            
             for(var i=0; i<timesArray.count*2; i=i+2){
                 if(totalCurrMinutes >= wednesdayMinutesTotal[i] && totalCurrMinutes < wednesdayMinutesTotal[i+1]){
                     if(i<=1){
@@ -299,7 +295,7 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         currPeriod = 1
                         startMin = wednesdayMinutesTotal[i]
                         endMin = wednesdayMinutesTotal[i+1]
-
+                        
                     }
                     else if(i<=5){
                         timeLeftInPeriod = wednesdayMinutesTotal[i+1] - totalCurrMinutes
@@ -307,7 +303,7 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         currPeriod = 2
                         startMin = wednesdayMinutesTotal[i]
                         endMin = wednesdayMinutesTotal[i+1]
-
+                        
                     }
                     else if(i<=7){
                         timeLeftInPeriod = wednesdayMinutesTotal[i+1] - totalCurrMinutes
@@ -315,7 +311,7 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         currPeriod = 3
                         startMin = wednesdayMinutesTotal[i]
                         endMin = wednesdayMinutesTotal[i+1]
-
+                        
                     }
                     else if(i<=9){
                         timeLeftInPeriod = wednesdayMinutesTotal[i+1] - totalCurrMinutes
@@ -323,7 +319,7 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         currPeriod = 4
                         startMin = wednesdayMinutesTotal[i]
                         endMin = wednesdayMinutesTotal[i+1]
-
+                        
                     }
                     else if(i<=11){
                         timeLeftInPeriod = wednesdayMinutesTotal[i+1] - totalCurrMinutes
@@ -331,18 +327,18 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         currPeriod = 5
                         startMin = wednesdayMinutesTotal[i]
                         endMin = wednesdayMinutesTotal[i+1]
-
+                        
                     }
                     else if (totalCurrMinutes >= wednesdayMinutesTotal[0] && totalCurrMinutes < wednesdayMinutesTotal[wednesdayMinutesTotal.count-1]){
                         timeBarLabel.text = "Passing!"
                     }
                     else{
                         timeBarLabel.text = "School's Out!"
-
+                        
                     }
-
+                    
                 }
-
+                    
                 else if (totalCurrMinutes < wednesdayMinutesTotal[0] || totalCurrMinutes >= wednesdayMinutesTotal[wednesdayMinutesTotal.count-1]){
                     timeBarLabel.text = "School's Out!"
                 }
@@ -398,13 +394,13 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                             timeBarLabel.text = "Passing!"
                         }
                     }
-
+                        
                     else if (totalCurrMinutes < thursdayMinutesTotal[0] || totalCurrMinutes >= thursdayMinutesTotal[thursdayMinutesTotal.count-1]){
                         timeBarLabel.text = "School's Out!"
                     }
                 }
             }
-
+            
         }
         else if(components.weekday == 6){
             for(var i=0; i<timesArray.count*2; i=i+2){
@@ -415,7 +411,7 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         currPeriod = 0
                         startMin = fridayMinutesTotal[i]
                         endMin = fridayMinutesTotal[i+1]
-
+                        
                     }
                     else if(i<=3){
                         timeLeftInPeriod = fridayMinutesTotal[i+1] - totalCurrMinutes
@@ -467,13 +463,13 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         else{
             timeBarLabel.text = "School's Out!"
         }
-
+        
         tableView1.reloadData()
-
+        
     }
-
+    
     func getDayOfWeek(today:String)->Int {
-
+        
         let formatter  = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let todayDate = formatter.dateFromString(today)!
@@ -482,7 +478,7 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let weekDay = myComponents.weekday
         return weekDay
     }
-
+    
     @IBAction func daySelected(sender: AnyObject) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -500,43 +496,43 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         case 4:
             setTableView("F")
             currTableView = 6
-
+            
         default:
             break;
         }
     }
-
+    
     func setHoursAndMinutes(day: String, time: String){
         var originalString = time
         let dashIndex = originalString.lowercaseString.characters.indexOf("-")
         let dashIndexString = "\(dashIndex!)"
         let DashIndexInt = Int(dashIndexString)!
-
+        
         //---------------------------------------
-
+        
         //left of dash
         let leftOfDashRange = originalString.startIndex.advancedBy(0)..<originalString.startIndex.advancedBy(DashIndexInt-1)
         //let leftOfDashRange = advance(originalString.startIndex, 0)..<advance(originalString.startIndex, DashIndexInt-1)
         let leftOfDashString = originalString[leftOfDashRange]
-
+        
         let colonIndex = leftOfDashString.lowercaseString.characters.indexOf(":")
         let colonIndexString = "\(colonIndex!)"
         let colonIndexInt = Int(colonIndexString)!
-
+        
         //left of colon
         let leftOfColonRange = leftOfDashString.startIndex.advancedBy(0)..<leftOfDashString.startIndex.advancedBy(colonIndexInt)
         //let leftOfColonRange = advance(leftOfDashString.startIndex, 0)..<advance(leftOfDashString.startIndex, colonIndexInt)
         let leftOfColonString = leftOfDashString[leftOfColonRange]
         var leftOfColonInt = Int(leftOfColonString)!
-
+        
         //right of colon
         let rightOfColonRange = leftOfDashString.startIndex.advancedBy(colonIndexInt+1)..<leftOfDashString.endIndex.advancedBy(0)
         //let rightOfColonRange = advance(leftOfDashString.startIndex, colonIndexInt+1)..<advance(leftOfDashString.endIndex, 0)
         let rightOfColonString = leftOfDashString[rightOfColonRange]
         var rightOfColonInt = Int(rightOfColonString)!
-
+        
         //------------------------------------------
-
+        
         //right of dash
         let rightOfDashRange = originalString.startIndex.advancedBy(DashIndexInt+2)..<originalString.endIndex.advancedBy(0)
         //let rightOfDashRange = advance(originalString.startIndex, DashIndexInt+2)..<advance(originalString.endIndex, 0)
@@ -544,19 +540,19 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let colonIndex2 = rightOfDashString.lowercaseString.characters.indexOf(":")
         let colonIndexString2 = "\(colonIndex2!)"
         var colonIndexInt2 = Int(colonIndexString2)!
-
+        
         //left of colon
         let leftOfColonRange2 = rightOfDashString.startIndex.advancedBy(0)..<rightOfDashString.startIndex.advancedBy(colonIndexInt2)
         //let leftOfColonRange2 = advance(rightOfDashString.startIndex, 0)..<advance(rightOfDashString.startIndex, colonIndexInt2)
         let leftOfColonString2 = rightOfDashString[leftOfColonRange2]
         var leftOfColonInt2 = Int(leftOfColonString2)!
-
+        
         //right of colon
         let rightOfColonRange2 = rightOfDashString.startIndex.advancedBy(colonIndexInt2+1)..<rightOfDashString.endIndex.advancedBy(0)
         //let rightOfColonRange2 = advance(rightOfDashString.startIndex, colonIndexInt2+1)..<advance(rightOfDashString.endIndex, 0)
         let rightOfColonString2 = rightOfDashString[rightOfColonRange2]
         var rightOfColonInt2 = Int(rightOfColonString2)!
-
+        
         if(leftOfColonInt == 1){
             leftOfColonInt = 13
         }
@@ -575,29 +571,33 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if(leftOfColonInt2 == 3){
             leftOfColonInt2 = 15
         }
-
-        if(day == "M"){
+        
+        if(day == "M")
+        {
             mondayMintuesTotal.append(leftOfColonInt*60 + rightOfColonInt)
             mondayMintuesTotal.append(leftOfColonInt2*60 + rightOfColonInt2)
         }
-        else if(day == "T"){
+        else if(day == "T")
+        {
             tuesdayMinutesTotal.append(leftOfColonInt*60 + rightOfColonInt)
             tuesdayMinutesTotal.append(leftOfColonInt2*60 + rightOfColonInt2)
         }
-        else if(day == "W"){
+        else if(day == "W")
+        {
             wednesdayMinutesTotal.append(leftOfColonInt*60 + rightOfColonInt)
             wednesdayMinutesTotal.append(leftOfColonInt2*60 + rightOfColonInt2)
         }
-        else if(day == "TH"){
+        else if(day == "TH")
+        {
             thursdayMinutesTotal.append(leftOfColonInt*60 + rightOfColonInt)
             thursdayMinutesTotal.append(leftOfColonInt2*60 + rightOfColonInt2)
         }
-        else if(day == "F"){
+        else if(day == "F")
+        {
             fridayMinutesTotal.append(leftOfColonInt*60 + rightOfColonInt)
             fridayMinutesTotal.append(leftOfColonInt2*60 + rightOfColonInt2)
         }
     }
-
     func setTableView(day: String){
         if(day == "M"){
             mondayTimesArray = ["7:50 - 8:37", "8:42 - 9:29", "9:29 - 10:05",
@@ -625,7 +625,7 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 "12:15 - 12:55", "1:00 - 2:35", "2:40 - 3:10"]
             periodArray = ["4", "B", "5", "L", "6", "T"]
             onMondayTab = false
-
+            
             for(var i=0; i<timesArray.count; i++){
                 setHoursAndMinutes(day, time: timesArray[i])
             }
@@ -651,7 +651,6 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         tableView1.reloadData()
     }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(onMondayTab == true){
             return mondayTimesArray.count

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		211BD4DE1C4AEAF200984440 /* AddAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BD4DD1C4AEAF200984440 /* AddAssignmentViewController.swift */; };
+		211BD4E01C4AEB3600984440 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BD4DF1C4AEB3600984440 /* Assignment.swift */; };
 		9D61D9631BCC7E3300A0AF0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D61D9611BCC7E3300A0AF0F /* Main.storyboard */; };
 		9D61D9681BCC7E3300A0AF0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D61D9661BCC7E3300A0AF0F /* LaunchScreen.storyboard */; };
 		9D61D9731BCC7E3300A0AF0F /* pat_s_shs_app_2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D9721BCC7E3300A0AF0F /* pat_s_shs_app_2_0Tests.swift */; };
@@ -14,7 +16,7 @@
 		9D61D98C1BCC7EF900A0AF0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D98B1BCC7EF900A0AF0F /* AppDelegate.swift */; };
 		9D61D98E1BCC7F9900A0AF0F /* BellTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D98D1BCC7F9900A0AF0F /* BellTabVC.swift */; };
 		9D61D9941BCC7FB200A0AF0F /* HomeTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D9931BCC7FB200A0AF0F /* HomeTabVC.swift */; };
-		9D61D9961BCC7FB800A0AF0F /* MeTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D9951BCC7FB800A0AF0F /* MeTabVC.swift */; };
+		9D61D9961BCC7FB800A0AF0F /* Planner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D9951BCC7FB800A0AF0F /* Planner.swift */; };
 		9D61D9981BCC7FBE00A0AF0F /* NewsTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D9971BCC7FBE00A0AF0F /* NewsTabVC.swift */; };
 		9D61D99A1BCC7FC600A0AF0F /* PeriodTimesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D9991BCC7FC600A0AF0F /* PeriodTimesCell.swift */; };
 		9D61D99C1BCC802200A0AF0F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D61D99B1BCC802200A0AF0F /* Images.xcassets */; };
@@ -85,6 +87,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		211BD4DD1C4AEAF200984440 /* AddAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAssignmentViewController.swift; sourceTree = "<group>"; };
+		211BD4DF1C4AEB3600984440 /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		9D61D95A1BCC7E3300A0AF0F /* pat's shs app 2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pat's shs app 2.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D61D9621BCC7E3300A0AF0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D61D9671BCC7E3300A0AF0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,7 +102,7 @@
 		9D61D98B1BCC7EF900A0AF0F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D61D98D1BCC7F9900A0AF0F /* BellTabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BellTabVC.swift; sourceTree = "<group>"; };
 		9D61D9931BCC7FB200A0AF0F /* HomeTabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabVC.swift; sourceTree = "<group>"; };
-		9D61D9951BCC7FB800A0AF0F /* MeTabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeTabVC.swift; sourceTree = "<group>"; };
+		9D61D9951BCC7FB800A0AF0F /* Planner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Planner.swift; sourceTree = "<group>"; };
 		9D61D9971BCC7FBE00A0AF0F /* NewsTabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTabVC.swift; sourceTree = "<group>"; };
 		9D61D9991BCC7FC600A0AF0F /* PeriodTimesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodTimesCell.swift; sourceTree = "<group>"; };
 		9D61D99B1BCC802200A0AF0F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -265,7 +269,7 @@
 				9DF06D371BDD7F1600E34C75 /* HomeTab */,
 				9DF06D381BDD7F2C00E34C75 /* NewsTab */,
 				9DF06D391BDD7F3600E34C75 /* DirectoryTab */,
-				9DF06D3A1BDD7F4800E34C75 /* MeTab */,
+				9DF06D3A1BDD7F4800E34C75 /* PlannerTab */,
 			);
 			name = "All Tabs";
 			sourceTree = "<group>";
@@ -355,12 +359,14 @@
 			name = DirectoryTab;
 			sourceTree = "<group>";
 		};
-		9DF06D3A1BDD7F4800E34C75 /* MeTab */ = {
+		9DF06D3A1BDD7F4800E34C75 /* PlannerTab */ = {
 			isa = PBXGroup;
 			children = (
-				9D61D9951BCC7FB800A0AF0F /* MeTabVC.swift */,
+				9D61D9951BCC7FB800A0AF0F /* Planner.swift */,
+				211BD4DF1C4AEB3600984440 /* Assignment.swift */,
+				211BD4DD1C4AEAF200984440 /* AddAssignmentViewController.swift */,
 			);
-			name = MeTab;
+			name = PlannerTab;
 			sourceTree = "<group>";
 		};
 		9DF06D3B1BDD7F5F00E34C75 /* PeriodTab */ = {
@@ -531,7 +537,9 @@
 				9D93FBC61C3B9E92009346CE /* utilityCell.swift in Sources */,
 				9D770AE91C3A03B700C5FB94 /* TipInCellAnimator.swift in Sources */,
 				9D770AF11C3A03C100C5FB94 /* NormalDetail.swift in Sources */,
+				211BD4E01C4AEB3600984440 /* Assignment.swift in Sources */,
 				9D61D98C1BCC7EF900A0AF0F /* AppDelegate.swift in Sources */,
+				211BD4DE1C4AEAF200984440 /* AddAssignmentViewController.swift in Sources */,
 				9D770AE81C3A03B700C5FB94 /* UITableView+Frames.swift in Sources */,
 				9D61D98E1BCC7F9900A0AF0F /* BellTabVC.swift in Sources */,
 				9D770AEE1C3A03C100C5FB94 /* LoadingViewController.swift in Sources */,
@@ -539,7 +547,7 @@
 				9DFEFDD51BE6D611003462C8 /* AnounceEventsCell.swift in Sources */,
 				9D770AF31C3A03CA00C5FB94 /* Utility.swift in Sources */,
 				9D770AE41C3A03B700C5FB94 /* JBKenBurnsView.m in Sources */,
-				9D61D9961BCC7FB800A0AF0F /* MeTabVC.swift in Sources */,
+				9D61D9961BCC7FB800A0AF0F /* Planner.swift in Sources */,
 				9D61D9A11BCC818C00A0AF0F /* TabBarControllerViewController.swift in Sources */,
 				9D770AF01C3A03C100C5FB94 /* SpotlightDetail.swift in Sources */,
 				9D61D9981BCC7FBE00A0AF0F /* NewsTabVC.swift in Sources */,
@@ -693,7 +701,7 @@
 				INFOPLIST_FILE = "pat's shs app 2.0/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "DaliLabs.Inc.pat-s-shs-app-2-0";
+				PRODUCT_BUNDLE_IDENTIFIER = "DaliLabs.Inc.pat-s-shs-app-2.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "pat's shs app 2.0/pat's shs app 2.0-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -713,7 +721,7 @@
 				INFOPLIST_FILE = "pat's shs app 2.0/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "DaliLabs.Inc.pat-s-shs-app-2-0";
+				PRODUCT_BUNDLE_IDENTIFIER = "DaliLabs.Inc.pat-s-shs-app-2.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "pat's shs app 2.0/pat's shs app 2.0-Bridging-Header.h";
 			};

@@ -25,6 +25,8 @@ Probably the container is presented by this delegate.
     
 }
 
+var vcCalled : Bool = false
+
 /**
 Scroll Page:
 The page represents any page added to the container.
@@ -40,13 +42,13 @@ At the moment it's only used to perform custom animations on didScroll.
 }
 
 
-@objc class MMPlayStandPageViewController: UIViewController,UIScrollViewDelegate,scrolldelegateForYAxis,UIGestureRecognizerDelegate {
+@objc class MMPlayStandPageViewController: UIViewController,UIScrollViewDelegate,scrolldelegateForYAxis,UIGestureRecognizerDelegate, MMPlayPageControllerDelegate {
     
     // MARK: - Public properties -
     
     weak var delegate:MMPlayPageControllerDelegate?
-    
-   
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
     var check:NSString!
     var menuBut:UIButton!
     var searchBut:UIButton!
@@ -60,6 +62,7 @@ At the moment it's only used to perform custom animations on didScroll.
     var currentPage:Int{    // The index of the current page (readonly)
         get{
             let page = Int((scrollview.contentOffset.x / view.bounds.size.width))
+            print("hello")
             return page
         }
         
@@ -82,6 +85,7 @@ At the moment it's only used to perform custom animations on didScroll.
     private var lastViewConstraint:NSArray?
     
     required init?(coder aDecoder: NSCoder) {
+        print("firstInit")
         // Setup the scrollview
         scrollview = UIScrollView()
         scrollview.showsHorizontalScrollIndicator = false
@@ -103,8 +107,6 @@ At the moment it's only used to perform custom animations on didScroll.
         //NavBut
         navBar=UIView();
         indicatorcolor=UIView();
-        menuBut =  UIButton(type: UIButtonType.System)
-        searchBut = UIButton(type: UIButtonType.System)
         super.init(coder: aDecoder)
     }
     
@@ -175,6 +177,7 @@ At the moment it's only used to perform custom animations on didScroll.
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?){
+        print("init nibname")
         scrollview = UIScrollView()
         controllers = Array()
         titles = Array()
@@ -187,19 +190,17 @@ At the moment it's only used to perform custom animations on didScroll.
         //NavBut
         indicatorcolor=UIView();
         navBar=UIView();
-        menuBut =  UIButton(type: UIButtonType.System)
-        searchBut = UIButton(type: UIButtonType.System)
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
         // Initialize UIScrollView
-        
+        print("viewDidLoad")
         scrollview.delegate = self
         scrollview.backgroundColor=UIColor.clearColor()
         scrollview.translatesAutoresizingMaskIntoConstraints = false
@@ -232,14 +233,6 @@ At the moment it's only used to perform custom animations on didScroll.
         //NavBut
         navBar.frame=CGRectMake(0, 0, self.view.frame.width, 64);
         navBar.backgroundColor=UIColor.clearColor()
-        
-        
-        
-        menuBut.frame = CGRectMake(16, 27 , 20, 20)
-        menuBut.tintColor=UIColor.whiteColor()
-        menuBut.setImage(UIImage(named: "menu")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate), forState: UIControlState.Normal)
-        menuBut.addTarget(self, action: "goToHome:", forControlEvents: .TouchUpInside)
-
 
         navTitle.frame = CGRectMake(50, 21 , 100, 30)
         navTitle.text = "Read Now"
@@ -247,24 +240,17 @@ At the moment it's only used to perform custom animations on didScroll.
         navTitle.alpha=0;
         navTitle.font=UIFont(name: "Roboto-Medium", size: 20)
         
-        searchBut.frame = CGRectMake(self.view.frame.width-40, 27 , 20, 20)
-        searchBut.setImage(UIImage(named: "search")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate), forState: UIControlState.Normal)
-        searchBut.tintColor=UIColor.whiteColor()
-        
-        navBar.addSubview(menuBut)
-        navBar.addSubview(searchBut)
         navBar.addSubview(navTitle)
         view.insertSubview(navBar, aboveSubview: scrollview);
         
        self.setNeedsStatusBarAppearanceUpdate()
+
         
     }
     func goToHome(sender: UIButton)
     {
-        self.dismissViewControllerAnimated(true, completion: nil)
-        inTab = false
-        justDismissedView = true
-
+        //self.performSegueWithIdentifier("goToTab", sender: self)
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -275,28 +261,62 @@ At the moment it's only used to perform custom animations on didScroll.
         return showStatus
     }
     
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated);
-        
-        createHorizontalScroller()
-        currentColor=colors[0]
-        self.bannerAlpha.mdInflateAnimatedFromPoint(CGPointMake(self.bannerImage.center.x , self.bannerImage.center.y), backgroundColor: self.currentColor, duration: 0.6, completion: nil)
-        var images :[UIImage]!
-        images=Array()
-        for(var i = 0; i < imageArr.count; i++)
+        if(vcCalled == false)
         {
-            images.append(imageArr[i] as! UIImage)
+            let stb = UIStoryboard(name: "Main", bundle: nil)
+            
+            let page_zero = stb.instantiateViewControllerWithIdentifier("stand_one") as! MMSampleTableViewController
+            let page_one = stb.instantiateViewControllerWithIdentifier("stand_one") as! MMSampleTableViewController
+            let page_two = stb.instantiateViewControllerWithIdentifier("stand_one")as! MMSampleTableViewController
+            let page_three = stb.instantiateViewControllerWithIdentifier("stand_one") as! MMSampleTableViewController
+            let page_four = stb.instantiateViewControllerWithIdentifier("stand_one") as! MMSampleTableViewController
+            let page_five = stb.instantiateViewControllerWithIdentifier("stand_one") as! MMSampleTableViewController
+            
+            //header Color
+            page_zero.tag=1
+            page_one.tag=2
+            page_two.tag=3
+            page_three.tag=4
+            page_four.tag=5
+            page_five.tag=6
+            
+            // Attach the pages to the master
+            appDelegate.walkthrough?.delegate = self
+            
+            appDelegate.walkthrough?.addViewControllerWithTitleandColor(page_zero, title: "Spotlight", color: UIColor(hexString: "9c27b0"))
+            appDelegate.walkthrough?.addViewControllerWithTitleandColor(page_one, title: "News", color:UIColor(hexString: "009688"))
+            
+            appDelegate.walkthrough?.addViewControllerWithTitleandColor(page_two, title: "Sports", color:UIColor(hexString: "673ab7"))
+            
+            appDelegate.walkthrough?.addViewControllerWithTitleandColor(page_three, title: "Opinion", color: UIColor(hexString: "ff9800"))
+            
+            appDelegate.walkthrough?.addViewControllerWithTitleandColor(page_four, title: "Columns", color: UIColor(hexString: "03a9f4"))
+            
+            appDelegate.walkthrough?.addViewControllerWithTitleandColor(page_five, title: "Features", color: UIColor(hexString: "4caf50"))
+            
+            createHorizontalScroller()
+            //currentColor=colors[0]
+            self.bannerAlpha.mdInflateAnimatedFromPoint(CGPointMake(self.bannerImage.center.x , self.bannerImage.center.y), backgroundColor: self.currentColor, duration: 0.6, completion: nil)
+            var images :[UIImage]!
+            images=Array()
+            for(var i = 0; i < imageArr.count; i++)
+            {
+                images.append(imageArr[i] as! UIImage)
+            }
+            bannerImage.animateWithImages(images, transitionDuration:6, initialDelay: 0, loop: true, isLandscape: true)
         }
-        bannerImage.animateWithImages(images, transitionDuration:6, initialDelay: 0, loop: true, isLandscape: true)
-
+        vcCalled = true
     }
     
+    
+
     
     // MARK: - Tap Gesture
     

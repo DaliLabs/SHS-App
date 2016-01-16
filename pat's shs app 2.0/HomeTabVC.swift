@@ -8,11 +8,11 @@
 import UIKit
 import Parse
 
-class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, KenBurnsViewDelegate {
 
-    @IBOutlet weak var homeImageView: UIImageView!
+    @IBOutlet weak var jkBernView: JBKenBurnsView!
     @IBOutlet weak var tableView: UITableView!
-
+    
     var anouncementsEventsArray = NSMutableArray()
 
     var year = 0
@@ -53,7 +53,30 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 print("Error: \(error!) \(error!.userInfo)")
             }
         }
-
+        
+        getStoryNids("spotlight", count: "5") { nids in
+            dispatch_async(dispatch_get_main_queue()) {
+                for(var i = 0; i < nids.count; i++)
+                {
+                    getArticleForNid(nids[i] as! String) { article in
+                        dispatch_async(dispatch_get_main_queue()) {
+                            spotlight_array.append(article!)
+                            getImage(article!.photoURL) { image in
+                                imageArr.append(image!)
+                            }
+                            if(spotlight_array.count == nids.count)
+                            {
+                                self.jkBernView.contentMode = UIViewContentMode.ScaleAspectFit
+                                self.jkBernView.frame = CGRectMake(0, 0, self.jkBernView.frame.width, self.jkBernView.frame.height)
+                                self.jkBernView.animateWithImages(imageArr, transitionDuration: 5.0, initialDelay: 0.0, loop: true, isLandscape: false)
+                    
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
 
     }
 

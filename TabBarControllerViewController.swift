@@ -9,8 +9,22 @@
 
 import UIKit
 
-class TabBarControllerViewController: UITabBarController {
+var showOrNot : Bool = false
 
+
+class TabBarControllerViewController: UITabBarController, UITabBarControllerDelegate {
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
+    override func viewWillAppear(animated: Bool) {
+        let vc = appDelegate.walkthrough!
+        let icon = UITabBarItem(title: "News", image: UIImage(imageLiteral: "newsTab"), selectedImage: nil)
+        vc.tabBarItem = icon
+        self.viewControllers?.append(vc)
+    }
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,12 +37,15 @@ class TabBarControllerViewController: UITabBarController {
     }
 
     override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
-        if(item.title == "News"){
-            print("selected news")
-
-        }
+ 
+        
     }
 
+    
+    func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
+ 
+        return true
+    }
     /*
     // MARK: - Navigation
 

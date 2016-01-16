@@ -31,7 +31,7 @@ var bodyToPass : String = ""
 var imageToPass : String = ""
 var titleToPass : String = ""
 
-class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,MMPlayPageScroll ,UIScrollViewDelegate{
+class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,MMPlayPageScroll ,UIScrollViewDelegate, MMPlayPageControllerDelegate{
     
     @IBOutlet weak var moreStoriesButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -52,7 +52,7 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var tag = 0 as Int
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewDidAppear(animated: Bool) {
         SwiftSpinner.hide()
     }
     
@@ -292,14 +292,54 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
         case 1:
             return spotlight_array.count
         case 2:
+            if(news_array.count == 0)
+            {
+                self.moreStoriesButton.setTitle("Load Stories...", forState: UIControlState.Normal)
+            }
+            else
+            {
+                self.moreStoriesButton.setTitle("Load More Stories...", forState: UIControlState.Normal)
+            }
             return news_array.count
         case 3:
+            if(sports_array.count == 0)
+            {
+                self.moreStoriesButton.setTitle("Load Stories...", forState: UIControlState.Normal)
+            }
+            else
+            {
+                self.moreStoriesButton.setTitle("Load More Stories...", forState: UIControlState.Normal)
+            }
             return sports_array.count
         case 4:
+            if(opinion_array.count == 0)
+            {
+                self.moreStoriesButton.setTitle("Load Stories...", forState: UIControlState.Normal)
+            }
+            else
+            {
+                self.moreStoriesButton.setTitle("Load More Stories...", forState: UIControlState.Normal)
+            }
             return opinion_array.count
         case 5:
+            if(columns_array.count == 0)
+            {
+                self.moreStoriesButton.setTitle("Load Stories...", forState: UIControlState.Normal)
+            }
+            else
+            {
+                self.moreStoriesButton.setTitle("Load More Stories...", forState: UIControlState.Normal)
+            }
             return columns_array.count
         case 6:
+            if(features_array.count == 0)
+            {
+                self.moreStoriesButton.setTitle("Load Stories...", forState: UIControlState.Normal)
+            }
+            else
+            {
+                self.moreStoriesButton.setTitle("Load More Stories...", forState: UIControlState.Normal)
+            }
             return features_array.count
         default:
             return spotlight_array.count
@@ -311,6 +351,7 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
         let cell:NewsCellTableViewCell = tableView.dequeueReusableCellWithIdentifier("cell") as! NewsCellTableViewCell
         switch (self.tag) {
         case 1:
+            self.moreStoriesButton.hidden = true
             cell.titleNews.text = spotlight_array[indexPath.row].title
             cell.descNews.text = spotlight_array[indexPath.row].author
         case 2:
