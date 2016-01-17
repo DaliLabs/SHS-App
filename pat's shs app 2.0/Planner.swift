@@ -21,7 +21,8 @@ class PlannerVC: UITableViewController {
     var todoItems : [Assignment] = []
     var sections = Dictionary<String, Array<Assignment>>()
     var sortedSections = [String]()
-    
+
+
     @IBAction func unwindAndAddToList(segue: UIStoryboardSegue) {
         
         let source = segue.sourceViewController as! AddAssignmentViewController
@@ -96,8 +97,11 @@ class PlannerVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
     }
-    
+
+
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
