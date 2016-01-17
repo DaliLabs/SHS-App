@@ -10,11 +10,11 @@ import Parse
 
 class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, KenBurnsViewDelegate {
 
-    @IBOutlet weak var jkBernView: JBKenBurnsView!
     @IBOutlet weak var tableView: UITableView!
     
     var anouncementsEventsArray = NSMutableArray()
 
+    @IBOutlet weak var gradesButton: UIButton!
     var year = 0
     var month = 0
     var monthsLeft = 0
@@ -26,7 +26,7 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-
+    
         var date = NSDate()
         var calendar = NSCalendar.currentCalendar()
         var components = calendar.components(NSCalendarUnit.Year.union(NSCalendarUnit.Minute).union(NSCalendarUnit.Hour).union(NSCalendarUnit.Month).union(NSCalendarUnit.Day).union(NSCalendarUnit.Second), fromDate: date)
@@ -66,9 +66,6 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
                             }
                             if(spotlight_array.count == nids.count)
                             {
-                                self.jkBernView.contentMode = UIViewContentMode.ScaleAspectFit
-                                self.jkBernView.frame = CGRectMake(0, 0, self.jkBernView.frame.width, self.jkBernView.frame.height)
-                                self.jkBernView.animateWithImages(imageArr, transitionDuration: 5.0, initialDelay: 0.0, loop: true, isLandscape: false)
                     
                             }
                         }
@@ -78,6 +75,27 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
         }
         
 
+    }
+    
+    @IBAction func gradesClicked(sender: AnyObject!)
+    {
+        let optionMenu = UIAlertController(title: nil, message: "Choose an Option For - Grades", preferredStyle: .ActionSheet)
+        let canvasAction = UIAlertAction(title: "Canvas", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+        })
+        let aeriesAction = UIAlertAction(title: "Aeries", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("Cancelled")
+        })
+        
+        optionMenu.addAction(canvasAction)
+        optionMenu.addAction(aeriesAction)
+        optionMenu.addAction(cancelAction)
+        
+        self.presentViewController(optionMenu, animated: true, completion: nil)
     }
 
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -95,7 +113,7 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
         if(self.anouncementsEventsArray.count == 0)
         {
-            return "loading"
+            return "Loading Events..."
         }
         for(var i=0; i<12; i++){
             if(i == section){
@@ -221,32 +239,7 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     
 }

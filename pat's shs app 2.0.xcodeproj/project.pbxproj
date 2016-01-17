@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		211BD4DE1C4AEAF200984440 /* AddAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BD4DD1C4AEAF200984440 /* AddAssignmentViewController.swift */; };
 		211BD4E01C4AEB3600984440 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BD4DF1C4AEB3600984440 /* Assignment.swift */; };
+		211BD4E41C4B4DCB00984440 /* CustomNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BD4E31C4B4DCB00984440 /* CustomNavigation.swift */; };
 		9D61D9631BCC7E3300A0AF0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D61D9611BCC7E3300A0AF0F /* Main.storyboard */; };
 		9D61D9681BCC7E3300A0AF0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D61D9661BCC7E3300A0AF0F /* LaunchScreen.storyboard */; };
 		9D61D9731BCC7E3300A0AF0F /* pat_s_shs_app_2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D9721BCC7E3300A0AF0F /* pat_s_shs_app_2_0Tests.swift */; };
@@ -47,7 +48,6 @@
 		9D770AE71C3A03B700C5FB94 /* NewsCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D770AE01C3A03B700C5FB94 /* NewsCellTableViewCell.swift */; };
 		9D770AE81C3A03B700C5FB94 /* UITableView+Frames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D770AE11C3A03B700C5FB94 /* UITableView+Frames.swift */; };
 		9D770AE91C3A03B700C5FB94 /* TipInCellAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D770AE21C3A03B700C5FB94 /* TipInCellAnimator.swift */; };
-		9D770AEE1C3A03C100C5FB94 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D770AEA1C3A03C100C5FB94 /* LoadingViewController.swift */; };
 		9D770AEF1C3A03C100C5FB94 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D770AEB1C3A03C100C5FB94 /* NewsViewController.swift */; };
 		9D770AF01C3A03C100C5FB94 /* SpotlightDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D770AEC1C3A03C100C5FB94 /* SpotlightDetail.swift */; };
 		9D770AF11C3A03C100C5FB94 /* NormalDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D770AED1C3A03C100C5FB94 /* NormalDetail.swift */; };
@@ -89,6 +89,7 @@
 /* Begin PBXFileReference section */
 		211BD4DD1C4AEAF200984440 /* AddAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAssignmentViewController.swift; sourceTree = "<group>"; };
 		211BD4DF1C4AEB3600984440 /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
+		211BD4E31C4B4DCB00984440 /* CustomNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigation.swift; sourceTree = "<group>"; };
 		9D61D95A1BCC7E3300A0AF0F /* pat's shs app 2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pat's shs app 2.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D61D9621BCC7E3300A0AF0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D61D9671BCC7E3300A0AF0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -137,7 +138,6 @@
 		9D770AE01C3A03B700C5FB94 /* NewsCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsCellTableViewCell.swift; path = "MMGooglePlayNewsStand-master 4/MMGooglePlayNewsStand/NewsCellTableViewCell.swift"; sourceTree = "<group>"; };
 		9D770AE11C3A03B700C5FB94 /* UITableView+Frames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITableView+Frames.swift"; path = "MMGooglePlayNewsStand-master 4/MMGooglePlayNewsStand/UITableView+Frames.swift"; sourceTree = "<group>"; };
 		9D770AE21C3A03B700C5FB94 /* TipInCellAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TipInCellAnimator.swift; path = "MMGooglePlayNewsStand-master 4/MMGooglePlayNewsStand/TipInCellAnimator.swift"; sourceTree = "<group>"; };
-		9D770AEA1C3A03C100C5FB94 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingViewController.swift; path = "MMGooglePlayNewsStand-master 4/MMGooglePlayNewsStand/LoadingViewController.swift"; sourceTree = "<group>"; };
 		9D770AEB1C3A03C100C5FB94 /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsViewController.swift; path = "MMGooglePlayNewsStand-master 4/MMGooglePlayNewsStand/NewsViewController.swift"; sourceTree = "<group>"; };
 		9D770AEC1C3A03C100C5FB94 /* SpotlightDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpotlightDetail.swift; path = "MMGooglePlayNewsStand-master 4/MMGooglePlayNewsStand/SpotlightDetail.swift"; sourceTree = "<group>"; };
 		9D770AED1C3A03C100C5FB94 /* NormalDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NormalDetail.swift; path = "MMGooglePlayNewsStand-master 4/MMGooglePlayNewsStand/NormalDetail.swift"; sourceTree = "<group>"; };
@@ -235,6 +235,7 @@
 			children = (
 				9D61D99F1BCC812000A0AF0F /* All Tabs */,
 				9D61D98B1BCC7EF900A0AF0F /* AppDelegate.swift */,
+				211BD4E31C4B4DCB00984440 /* CustomNavigation.swift */,
 				9D61D9611BCC7E3300A0AF0F /* Main.storyboard */,
 				9D61D99B1BCC802200A0AF0F /* Images.xcassets */,
 				9D61D9661BCC7E3300A0AF0F /* LaunchScreen.storyboard */,
@@ -320,7 +321,6 @@
 		9DCDBD9B1C39EA8000B8B95A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9D770AEA1C3A03C100C5FB94 /* LoadingViewController.swift */,
 				9D770AEB1C3A03C100C5FB94 /* NewsViewController.swift */,
 				9D770AEC1C3A03C100C5FB94 /* SpotlightDetail.swift */,
 				9D770AED1C3A03C100C5FB94 /* NormalDetail.swift */,
@@ -542,8 +542,8 @@
 				211BD4DE1C4AEAF200984440 /* AddAssignmentViewController.swift in Sources */,
 				9D770AE81C3A03B700C5FB94 /* UITableView+Frames.swift in Sources */,
 				9D61D98E1BCC7F9900A0AF0F /* BellTabVC.swift in Sources */,
-				9D770AEE1C3A03C100C5FB94 /* LoadingViewController.swift in Sources */,
 				9D770AC61C3A03A800C5FB94 /* SwiftSpinner.swift in Sources */,
+				211BD4E41C4B4DCB00984440 /* CustomNavigation.swift in Sources */,
 				9DFEFDD51BE6D611003462C8 /* AnounceEventsCell.swift in Sources */,
 				9D770AF31C3A03CA00C5FB94 /* Utility.swift in Sources */,
 				9D770AE41C3A03B700C5FB94 /* JBKenBurnsView.m in Sources */,

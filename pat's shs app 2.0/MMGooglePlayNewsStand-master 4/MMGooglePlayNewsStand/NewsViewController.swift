@@ -30,6 +30,14 @@ func uniq<S : SequenceType, T : Hashable where S.Generator.Element == T>(source:
 var bodyToPass : String = ""
 var imageToPass : String = ""
 var titleToPass : String = ""
+var spotlight_array : [Article] = []
+var news_array : [Article] = []
+var sports_array : [Article] = []
+var opinion_array : [Article] = []
+var columns_array : [Article] = []
+var features_array : [Article] = []
+var imageArr : [AnyObject] = []
+
 
 class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,MMPlayPageScroll ,UIScrollViewDelegate, MMPlayPageControllerDelegate{
     
@@ -67,7 +75,33 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
         headerImage.frame=CGRectMake(header.center.x-30, header.center.y-30, 60, 60)
         headerImage.layer.cornerRadius=headerImage.frame.width/2
         
-        
+        if(spotlight_array.count != 5)
+        {
+            var news_arr1 : [Article] = []
+            var image_arr1 : [AnyObject] = []
+            SwiftSpinner.show("Loading...")
+            getStoryNids("spotlight", count: "5") { nids in
+                dispatch_async(dispatch_get_main_queue()) {
+                    for(var i = 0; i < nids.count; i++)
+                    {
+                        getArticleForNid(nids[i] as! String) { article in
+                            dispatch_async(dispatch_get_main_queue()) {
+                                news_arr1.append(article!)
+                                getImage(article!.photoURL) { image in
+                                    image_arr1.append(image!)
+                                }
+                                if(spotlight_array.count == nids.count)
+                                {
+                                    news_array = news_arr1
+                                    imageArr = image_arr1
+                                    SwiftSpinner.hide()
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
        
         headerImage.tintColor=UIColor.whiteColor()
         
