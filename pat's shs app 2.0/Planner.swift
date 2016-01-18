@@ -8,30 +8,23 @@
 
 import UIKit
 
-var number_of_sections : Int = 0
-
 /*
 NSUserDefaults.standardUserDefaults().setInteger(highScore, forKey: "highscore")
 NSUserDefaults.standardUserDefaults().synchronize()
-
 */
 
 class PlannerVC: UITableViewController {
     
-    var todoItems : [Assignment] = []
     var sections = Dictionary<String, Array<Assignment>>()
     var sortedSections = [String]()
-
 
     @IBAction func unwindAndAddToList(segue: UIStoryboardSegue) {
         
         let source = segue.sourceViewController as! AddAssignmentViewController
         let todoItem : Assignment = source.assignment
         if todoItem.name != "" {
-            self.todoItems.append(todoItem)
             if(self.sections.indexForKey(todoItem.dueDate) == nil)
             {
-                number_of_sections++
                 self.sections[todoItem.dueDate] = [Assignment(name: todoItem.name, dueDate: todoItem.dueDate)]
             }
             else
@@ -99,7 +92,6 @@ class PlannerVC: UITableViewController {
         super.viewDidLoad()
 
     }
-
 
 
     override func didReceiveMemoryWarning() {
