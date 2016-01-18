@@ -159,11 +159,10 @@ class listViewController: UIViewController, UITableViewDelegate, UITableViewData
         })
         let saveAction = UIAlertAction(title: "Go to Website", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
-            let website = NSURL(string : "\(self.selectedStaff.website)")
-            UIApplication.sharedApplication().openURL(website!)
+            let webVC = SwiftWebVC(urlString: "\(self.selectedStaff.website)")
+            self.navigationController?.pushViewController(webVC, animated: true)
         })
         
-        //
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
             (alert: UIAlertAction!) -> Void in
             print("Cancelled")

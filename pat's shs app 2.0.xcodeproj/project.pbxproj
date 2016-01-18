@@ -10,6 +10,19 @@
 		211BD4DE1C4AEAF200984440 /* AddAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BD4DD1C4AEAF200984440 /* AddAssignmentViewController.swift */; };
 		211BD4E01C4AEB3600984440 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BD4DF1C4AEB3600984440 /* Assignment.swift */; };
 		211BD4E41C4B4DCB00984440 /* CustomNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BD4E31C4B4DCB00984440 /* CustomNavigation.swift */; };
+		219272AD1C4C77E800D8A90B /* SwiftWebVC.strings in Resources */ = {isa = PBXBuildFile; fileRef = 219272931C4C77E800D8A90B /* SwiftWebVC.strings */; };
+		219272AE1C4C77E800D8A90B /* SwiftModalWebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2192729C1C4C77E800D8A90B /* SwiftModalWebVC.swift */; };
+		219272AF1C4C77E800D8A90B /* SwiftWebVC.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2192729D1C4C77E800D8A90B /* SwiftWebVC.bundle */; };
+		219272B01C4C77E800D8A90B /* SwiftWebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2192729E1C4C77E800D8A90B /* SwiftWebVC.swift */; };
+		219272B11C4C77E800D8A90B /* SwiftWebVCActivityChrome-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 219272A11C4C77E800D8A90B /* SwiftWebVCActivityChrome-iPad.png */; };
+		219272B21C4C77E800D8A90B /* SwiftWebVCActivityChrome-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 219272A21C4C77E800D8A90B /* SwiftWebVCActivityChrome-iPad@2x.png */; };
+		219272B31C4C77E800D8A90B /* SwiftWebVCActivityChrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219272A31C4C77E800D8A90B /* SwiftWebVCActivityChrome.swift */; };
+		219272B41C4C77E800D8A90B /* SwiftWebVCActivityChrome@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 219272A41C4C77E800D8A90B /* SwiftWebVCActivityChrome@2x.png */; };
+		219272B51C4C77E800D8A90B /* SwiftWebVCActivitySafari-iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 219272A61C4C77E800D8A90B /* SwiftWebVCActivitySafari-iPad.png */; };
+		219272B61C4C77E800D8A90B /* SwiftWebVCActivitySafari-iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 219272A71C4C77E800D8A90B /* SwiftWebVCActivitySafari-iPad@2x.png */; };
+		219272B71C4C77E800D8A90B /* SwiftWebVCActivitySafari.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219272A81C4C77E800D8A90B /* SwiftWebVCActivitySafari.swift */; };
+		219272B81C4C77E800D8A90B /* SwiftWebVCActivitySafari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 219272A91C4C77E800D8A90B /* SwiftWebVCActivitySafari@2x.png */; };
+		219272B91C4C77E800D8A90B /* SwiftWebVCActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219272AA1C4C77E800D8A90B /* SwiftWebVCActivity.swift */; };
 		9D61D9631BCC7E3300A0AF0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D61D9611BCC7E3300A0AF0F /* Main.storyboard */; };
 		9D61D9681BCC7E3300A0AF0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D61D9661BCC7E3300A0AF0F /* LaunchScreen.storyboard */; };
 		9D61D9731BCC7E3300A0AF0F /* pat_s_shs_app_2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D9721BCC7E3300A0AF0F /* pat_s_shs_app_2_0Tests.swift */; };
@@ -90,6 +103,28 @@
 		211BD4DD1C4AEAF200984440 /* AddAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAssignmentViewController.swift; sourceTree = "<group>"; };
 		211BD4DF1C4AEB3600984440 /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		211BD4E31C4B4DCB00984440 /* CustomNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigation.swift; sourceTree = "<group>"; };
+		219272941C4C77E800D8A90B /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/SwiftWebVC.strings; sourceTree = "<group>"; };
+		219272951C4C77E800D8A90B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SwiftWebVC.strings; sourceTree = "<group>"; };
+		219272961C4C77E800D8A90B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SwiftWebVC.strings; sourceTree = "<group>"; };
+		219272971C4C77E800D8A90B /* es-ES */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-ES"; path = "es-ES.lproj/SwiftWebVC.strings"; sourceTree = "<group>"; };
+		219272981C4C77E800D8A90B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/SwiftWebVC.strings; sourceTree = "<group>"; };
+		219272991C4C77E800D8A90B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SwiftWebVC.strings; sourceTree = "<group>"; };
+		2192729A1C4C77E800D8A90B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/SwiftWebVC.strings; sourceTree = "<group>"; };
+		2192729B1C4C77E800D8A90B /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/SwiftWebVC.strings; sourceTree = "<group>"; };
+		2192729C1C4C77E800D8A90B /* SwiftModalWebVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftModalWebVC.swift; sourceTree = "<group>"; };
+		2192729D1C4C77E800D8A90B /* SwiftWebVC.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SwiftWebVC.bundle; sourceTree = "<group>"; };
+		2192729E1C4C77E800D8A90B /* SwiftWebVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftWebVC.swift; sourceTree = "<group>"; };
+		219272A11C4C77E800D8A90B /* SwiftWebVCActivityChrome-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SwiftWebVCActivityChrome-iPad.png"; sourceTree = "<group>"; };
+		219272A21C4C77E800D8A90B /* SwiftWebVCActivityChrome-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SwiftWebVCActivityChrome-iPad@2x.png"; sourceTree = "<group>"; };
+		219272A31C4C77E800D8A90B /* SwiftWebVCActivityChrome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftWebVCActivityChrome.swift; sourceTree = "<group>"; };
+		219272A41C4C77E800D8A90B /* SwiftWebVCActivityChrome@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SwiftWebVCActivityChrome@2x.png"; sourceTree = "<group>"; };
+		219272A61C4C77E800D8A90B /* SwiftWebVCActivitySafari-iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SwiftWebVCActivitySafari-iPad.png"; sourceTree = "<group>"; };
+		219272A71C4C77E800D8A90B /* SwiftWebVCActivitySafari-iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SwiftWebVCActivitySafari-iPad@2x.png"; sourceTree = "<group>"; };
+		219272A81C4C77E800D8A90B /* SwiftWebVCActivitySafari.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftWebVCActivitySafari.swift; sourceTree = "<group>"; };
+		219272A91C4C77E800D8A90B /* SwiftWebVCActivitySafari@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SwiftWebVCActivitySafari@2x.png"; sourceTree = "<group>"; };
+		219272AA1C4C77E800D8A90B /* SwiftWebVCActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftWebVCActivity.swift; sourceTree = "<group>"; };
+		219272AB1C4C77E800D8A90B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SwiftWebVC.strings"; sourceTree = "<group>"; };
+		219272AC1C4C77E800D8A90B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SwiftWebVC.strings"; sourceTree = "<group>"; };
 		9D61D95A1BCC7E3300A0AF0F /* pat's shs app 2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pat's shs app 2.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D61D9621BCC7E3300A0AF0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D61D9671BCC7E3300A0AF0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -197,6 +232,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		219272921C4C77E800D8A90B /* SwiftWebVC */ = {
+			isa = PBXGroup;
+			children = (
+				219272931C4C77E800D8A90B /* SwiftWebVC.strings */,
+				2192729C1C4C77E800D8A90B /* SwiftModalWebVC.swift */,
+				2192729D1C4C77E800D8A90B /* SwiftWebVC.bundle */,
+				2192729E1C4C77E800D8A90B /* SwiftWebVC.swift */,
+				2192729F1C4C77E800D8A90B /* UIActivities */,
+			);
+			path = SwiftWebVC;
+			sourceTree = "<group>";
+		};
+		2192729F1C4C77E800D8A90B /* UIActivities */ = {
+			isa = PBXGroup;
+			children = (
+				219272A01C4C77E800D8A90B /* Chrome */,
+				219272A51C4C77E800D8A90B /* Safari */,
+				219272AA1C4C77E800D8A90B /* SwiftWebVCActivity.swift */,
+			);
+			path = UIActivities;
+			sourceTree = "<group>";
+		};
+		219272A01C4C77E800D8A90B /* Chrome */ = {
+			isa = PBXGroup;
+			children = (
+				219272A11C4C77E800D8A90B /* SwiftWebVCActivityChrome-iPad.png */,
+				219272A21C4C77E800D8A90B /* SwiftWebVCActivityChrome-iPad@2x.png */,
+				219272A31C4C77E800D8A90B /* SwiftWebVCActivityChrome.swift */,
+				219272A41C4C77E800D8A90B /* SwiftWebVCActivityChrome@2x.png */,
+			);
+			path = Chrome;
+			sourceTree = "<group>";
+		};
+		219272A51C4C77E800D8A90B /* Safari */ = {
+			isa = PBXGroup;
+			children = (
+				219272A61C4C77E800D8A90B /* SwiftWebVCActivitySafari-iPad.png */,
+				219272A71C4C77E800D8A90B /* SwiftWebVCActivitySafari-iPad@2x.png */,
+				219272A81C4C77E800D8A90B /* SwiftWebVCActivitySafari.swift */,
+				219272A91C4C77E800D8A90B /* SwiftWebVCActivitySafari@2x.png */,
+			);
+			path = Safari;
+			sourceTree = "<group>";
+		};
 		9D61D9511BCC7E3300A0AF0F = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +312,7 @@
 		9D61D95C1BCC7E3300A0AF0F /* pat's shs app 2.0 */ = {
 			isa = PBXGroup;
 			children = (
+				219272921C4C77E800D8A90B /* SwiftWebVC */,
 				9D61D99F1BCC812000A0AF0F /* All Tabs */,
 				9D61D98B1BCC7EF900A0AF0F /* AppDelegate.swift */,
 				211BD4E31C4B4DCB00984440 /* CustomNavigation.swift */,
@@ -465,6 +545,15 @@
 			knownRegions = (
 				en,
 				Base,
+				da,
+				de,
+				"es-ES",
+				es,
+				fr,
+				ja,
+				pt,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 9D61D9511BCC7E3300A0AF0F;
 			productRefGroup = 9D61D95B1BCC7E3300A0AF0F /* Products */;
@@ -485,20 +574,28 @@
 			files = (
 				9D770ACB1C3A03A800C5FB94 /* sportsbg.jpg in Resources */,
 				9D770AC81C3A03A800C5FB94 /* back.png in Resources */,
+				219272B11C4C77E800D8A90B /* SwiftWebVCActivityChrome-iPad.png in Resources */,
+				219272B81C4C77E800D8A90B /* SwiftWebVCActivitySafari@2x.png in Resources */,
 				9D770AD61C3A03A800C5FB94 /* demo.png in Resources */,
+				219272B61C4C77E800D8A90B /* SwiftWebVCActivitySafari-iPad@2x.png in Resources */,
+				219272AD1C4C77E800D8A90B /* SwiftWebVC.strings in Resources */,
 				9D770ACC1C3A03A800C5FB94 /* businessbg.jpg in Resources */,
 				9D770AD11C3A03A800C5FB94 /* tech.png in Resources */,
+				219272B41C4C77E800D8A90B /* SwiftWebVCActivityChrome@2x.png in Resources */,
 				9D770ACD1C3A03A800C5FB94 /* worldbg.jpg in Resources */,
 				9D770AD21C3A03A800C5FB94 /* business.png in Resources */,
 				9D61D9681BCC7E3300A0AF0F /* LaunchScreen.storyboard in Resources */,
 				9D770AC91C3A03A800C5FB94 /* ironman.jpg in Resources */,
+				219272B21C4C77E800D8A90B /* SwiftWebVCActivityChrome-iPad@2x.png in Resources */,
 				9D770AD41C3A03A800C5FB94 /* news.png in Resources */,
+				219272B51C4C77E800D8A90B /* SwiftWebVCActivitySafari-iPad.png in Resources */,
 				9D770AD51C3A03A800C5FB94 /* bg@2x.jpg in Resources */,
 				9D770ACE1C3A03A800C5FB94 /* highlights.png in Resources */,
 				9D770AD71C3A03A800C5FB94 /* menu.png in Resources */,
 				9D770AD31C3A03A800C5FB94 /* sports.png in Resources */,
 				9D770ACA1C3A03A800C5FB94 /* applebg.png in Resources */,
 				9D770AD81C3A03A800C5FB94 /* search.png in Resources */,
+				219272AF1C4C77E800D8A90B /* SwiftWebVC.bundle in Resources */,
 				9D770AD01C3A03A800C5FB94 /* movie.png in Resources */,
 				9D61D99C1BCC802200A0AF0F /* Images.xcassets in Resources */,
 				9D61D9631BCC7E3300A0AF0F /* Main.storyboard in Resources */,
@@ -533,6 +630,9 @@
 				9D770AEF1C3A03C100C5FB94 /* NewsViewController.swift in Sources */,
 				9D61D9941BCC7FB200A0AF0F /* HomeTabVC.swift in Sources */,
 				9D770AC71C3A03A800C5FB94 /* MMPlayStandPageViewController.swift in Sources */,
+				219272B91C4C77E800D8A90B /* SwiftWebVCActivity.swift in Sources */,
+				219272AE1C4C77E800D8A90B /* SwiftModalWebVC.swift in Sources */,
+				219272B31C4C77E800D8A90B /* SwiftWebVCActivityChrome.swift in Sources */,
 				9D770AE71C3A03B700C5FB94 /* NewsCellTableViewCell.swift in Sources */,
 				9D93FBC61C3B9E92009346CE /* utilityCell.swift in Sources */,
 				9D770AE91C3A03B700C5FB94 /* TipInCellAnimator.swift in Sources */,
@@ -549,6 +649,8 @@
 				9D770AE41C3A03B700C5FB94 /* JBKenBurnsView.m in Sources */,
 				9D61D9961BCC7FB800A0AF0F /* Planner.swift in Sources */,
 				9D61D9A11BCC818C00A0AF0F /* TabBarControllerViewController.swift in Sources */,
+				219272B71C4C77E800D8A90B /* SwiftWebVCActivitySafari.swift in Sources */,
+				219272B01C4C77E800D8A90B /* SwiftWebVC.swift in Sources */,
 				9D770AF01C3A03C100C5FB94 /* SpotlightDetail.swift in Sources */,
 				9D61D9981BCC7FBE00A0AF0F /* NewsTabVC.swift in Sources */,
 				9D93FBC51C3B9E92009346CE /* listViewController.swift in Sources */,
@@ -588,6 +690,23 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		219272931C4C77E800D8A90B /* SwiftWebVC.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				219272941C4C77E800D8A90B /* da */,
+				219272951C4C77E800D8A90B /* de */,
+				219272961C4C77E800D8A90B /* en */,
+				219272971C4C77E800D8A90B /* es-ES */,
+				219272981C4C77E800D8A90B /* es */,
+				219272991C4C77E800D8A90B /* fr */,
+				2192729A1C4C77E800D8A90B /* ja */,
+				2192729B1C4C77E800D8A90B /* pt */,
+				219272AB1C4C77E800D8A90B /* zh-Hans */,
+				219272AC1C4C77E800D8A90B /* zh-Hant */,
+			);
+			name = SwiftWebVC.strings;
+			sourceTree = "<group>";
+		};
 		9D61D9611BCC7E3300A0AF0F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

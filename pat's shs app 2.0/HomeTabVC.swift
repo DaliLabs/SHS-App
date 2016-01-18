@@ -9,30 +9,29 @@ import UIKit
 import Parse
 
 class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, KenBurnsViewDelegate {
-
-    @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var aboutButton: UIButton!
     var anouncementsEventsArray = NSMutableArray()
-
     @IBOutlet weak var gradesButton: UIButton!
     var year = 0
     var month = 0
     var monthsLeft = 0
     var monthsArray = ["August", "September", "October", "November", "December",
         "January", "February", "March", "April", "May", "June", "July"]
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-    
+        
         var date = NSDate()
         var calendar = NSCalendar.currentCalendar()
         var components = calendar.components(NSCalendarUnit.Year.union(NSCalendarUnit.Minute).union(NSCalendarUnit.Hour).union(NSCalendarUnit.Month).union(NSCalendarUnit.Day).union(NSCalendarUnit.Second), fromDate: date)
         self.month = components.month
         self.year = components.year
-
+        
         var query = PFQuery(className: "Calendar")
         query.limit = 1000
         query.findObjectsInBackgroundWithBlock {
@@ -47,7 +46,7 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
                     }
                     self.tableView.reloadData()
                 }
-
+                
             } else {
                 // Log details of the failure
                 print("Error: \(error!) \(error!.userInfo)")
@@ -66,7 +65,7 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
                             }
                             if(spotlight_array.count == nids.count)
                             {
-                    
+                                
                             }
                         }
                     }
@@ -74,30 +73,41 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
             }
         }
         
-
+        
     }
     
     @IBAction func gradesClicked(sender: AnyObject!)
     {
         let optionMenu = UIAlertController(title: nil, message: "Choose an Option For - Grades", preferredStyle: .ActionSheet)
+        let navianceAction = UIAlertAction(title: "Naviance", style: .Default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            let webVC = SwiftWebVC(urlString: "http://www.naviance.com/")
+            self.navigationController?.pushViewController(webVC, animated: true)
+        })
         let canvasAction = UIAlertAction(title: "Canvas", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
+            let webVC = SwiftWebVC(urlString: "https://lgsuhsd.instructure.com/")
+            self.navigationController?.pushViewController(webVC, animated: true)
         })
         let aeriesAction = UIAlertAction(title: "Aeries", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
+            let webVC = SwiftWebVC(urlString: "https://aeries.lgsuhsd.org/aeries.net/loginparent.aspx")
+            self.navigationController?.pushViewController(webVC, animated: true)
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: {
             (alert: UIAlertAction!) -> Void in
             print("Cancelled")
         })
         
+        
         optionMenu.addAction(canvasAction)
         optionMenu.addAction(aeriesAction)
+        optionMenu.addAction(navianceAction)
         optionMenu.addAction(cancelAction)
         
         self.presentViewController(optionMenu, animated: true, completion: nil)
     }
-
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         if(month >= 8){
             self.monthsLeft = 19 - month
@@ -107,9 +117,9 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
         }
         print(monthsLeft)
         return self.monthsLeft
-
+        
     }
-
+    
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
         if(self.anouncementsEventsArray.count == 0)
         {
@@ -122,34 +132,34 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
         }
         return "loading"
     }
-
+    
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
-
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var tableViewCount = 0
-
+        
         if (anouncementsEventsArray.count == 0){
             tableViewCount = 0
         }
         var indexOfCurMonth = 11 - monthsLeft
         print("get ready")
-
+        
         for (var i=0; i<anouncementsEventsArray.count; i++)
         {
             print(self.anouncementsEventsArray[i].objectForKey("Month") as! String)
             if(StringMonthToNumMonth(monthsArray[indexOfCurMonth+section])
                 == Int(self.anouncementsEventsArray[i].objectForKey("Month") as! String))
             {
-
+                
                 tableViewCount++
             }
-
+            
         }
         return tableViewCount
     }
-
+    
     func StringMonthToNumMonth(month: String) -> Int {
         switch month {
         case "January":
@@ -179,18 +189,18 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
         default:
             return 0
         }
-
+        
     }
-
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 80
     }
-
+    
     func returnDayOfMonth(inputString: String) -> Int {
         let finalString = inputString[inputString.startIndex.advancedBy(3)..<inputString.startIndex.advancedBy(5)]
         return Int(finalString)!
     }
-
+    
     func returnStartTime(inputString: String) -> String {
         var leftOfColon = inputString[inputString.startIndex.advancedBy(11)..<inputString.startIndex.advancedBy(13)]
         let rightOfColon = inputString[inputString.startIndex.advancedBy(14)..<inputString.startIndex.advancedBy(16)]
@@ -211,19 +221,19 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
         }
         return finalString
     }
-
+    
     func returnDayOfWeek(inputString: String) -> String {
         let stringOfDate = inputString[inputString.startIndex.advancedBy(3)..<inputString.startIndex.advancedBy(5)]
-
+        
         return ""
     }
-
-
-
+    
+    
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("AnounceEvents", forIndexPath: indexPath) as! AnounceEventsCell
         cell.name.text = String(self.anouncementsEventsArray[indexPath.row].objectForKey("Title")!)
-
+        
         if let locationLabel = self.anouncementsEventsArray[indexPath.row].objectForKey("Description") {
             cell.locationLabel.text = locationLabel as? String
         }
@@ -239,7 +249,7 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
     }
     
     
-
+    
     
     
 }

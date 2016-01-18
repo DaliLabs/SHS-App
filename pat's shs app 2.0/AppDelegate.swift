@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         UINavigationBar.appearance().barTintColor = UIColor.redColor()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         let main = UIStoryboard(name: "Main", bundle: nil)
         walkthrough = main.instantiateViewControllerWithIdentifier("playstand") as? MMPlayStandPageViewController
 
