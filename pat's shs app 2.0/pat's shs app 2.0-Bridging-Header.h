@@ -5,3 +5,4 @@
 #import "UIColor+HexRepresentation.h"
 #import "UIView+MaterialDesign.h"
 #import "JBKenBurnsView.h"
+#import "KLCPopup.h"

@@ -20,9 +20,8 @@ class TabBarControllerViewController: UITabBarController, UITabBarControllerDele
         let icon = UITabBarItem(title: "News", image: UIImage(imageLiteral: "newsTab"), selectedImage: nil)
         vc.tabBarItem = icon
         self.viewControllers?.append(vc)
+
     }
-    
-    
     
     
     override func viewDidLoad() {
@@ -37,7 +36,6 @@ class TabBarControllerViewController: UITabBarController, UITabBarControllerDele
     }
 
     override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
- 
         
     }
 

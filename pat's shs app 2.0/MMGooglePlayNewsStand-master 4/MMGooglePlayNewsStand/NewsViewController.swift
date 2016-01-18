@@ -49,12 +49,12 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
     var imageArr1:[UIImage]!
     var transitionManager : TransitionModel!
     var preventAnimation = Set<NSIndexPath>()
-    var spotlightClicked = 5
-    var newsClicked = 10
-    var sportsClicked = 10
-    var opinionClicked = 10
-    var columnsClicked = 10
-    var featuresClicked = 10
+    var spotlightClicked = 0
+    var newsClicked = 0
+    var sportsClicked = 0
+    var opinionClicked = 0
+    var columnsClicked = 0
+    var featuresClicked = 0
     
     //     weak var scrolldelegate:scrolldelegateForYAxis?
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -65,7 +65,7 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
     }
     
     override func viewDidLoad() {
-        
+        imageArr = [UIImage(named: "defaultImage.png")!]
         transitionManager = TransitionModel()
         super.viewDidLoad()
         self.tableView.delegate=self;
@@ -74,34 +74,7 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
         header.frame=CGRectMake(0, 0, self.view.frame.width, 200);
         headerImage.frame=CGRectMake(header.center.x-30, header.center.y-30, 60, 60)
         headerImage.layer.cornerRadius=headerImage.frame.width/2
-        
-        if(spotlight_array.count != 5)
-        {
-            var news_arr1 : [Article] = []
-            var image_arr1 : [AnyObject] = []
-            SwiftSpinner.show("Loading...")
-            getStoryNids("spotlight", count: "5") { nids in
-                dispatch_async(dispatch_get_main_queue()) {
-                    for(var i = 0; i < nids.count; i++)
-                    {
-                        getArticleForNid(nids[i] as! String) { article in
-                            dispatch_async(dispatch_get_main_queue()) {
-                                news_arr1.append(article!)
-                                getImage(article!.photoURL) { image in
-                                    image_arr1.append(image!)
-                                }
-                                if(spotlight_array.count == nids.count)
-                                {
-                                    news_array = news_arr1
-                                    imageArr = image_arr1
-                                    SwiftSpinner.hide()
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+
        
         headerImage.tintColor=UIColor.whiteColor()
         
@@ -180,132 +153,140 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
     
     
     @IBAction func moreStoriesClicked(sender: AnyObject) {
-        SwiftSpinner.show("Loading...")
-        switch(self.tag) {
-        case 1:
-            spotlightClicked+=5
-            spotlight_array = []
-            getStoryNids("spotlight", count: "\(spotlightClicked)") { nids in
-                dispatch_async(dispatch_get_main_queue()) {
-                    for(var i = 0; i < nids.count; i++)
-                    {
-                        getArticleForNid(nids[i] as! String) { article in
-                            dispatch_async(dispatch_get_main_queue()) {
-                                spotlight_array.append(article!)
-                                if(spotlight_array.count == nids.count)
-                                {
-                                    self.tableView.reloadData()
-                                    SwiftSpinner.hide()
+        if(Reachability.isConnectedToNetwork())
+        {
+            SwiftSpinner.show("Loading...")
+            switch(self.tag) {
+            case 1:
+                spotlightClicked+=5
+                spotlight_array = []
+                getStoryNids("spotlight", count: "\(spotlightClicked)") { nids in
+                    dispatch_async(dispatch_get_main_queue()) {
+                        for(var i = 0; i < nids.count; i++)
+                        {
+                            getArticleForNid(nids[i] as! String) { article in
+                                dispatch_async(dispatch_get_main_queue()) {
+                                    spotlight_array.append(article!)
+                                    if(spotlight_array.count == nids.count)
+                                    {
+                                        self.tableView.reloadData()
+                                        SwiftSpinner.hide()
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
-        case 2:
-            newsClicked+=10
-            news_array = []
-            getStoryNids("news", count: "\(newsClicked)") { nids in
-                dispatch_async(dispatch_get_main_queue()) {
-                    for(var i = 0; i < nids.count; i++)
-                    {
-                        getArticleForNid(nids[i] as! String) { article in
-                            dispatch_async(dispatch_get_main_queue()) {
-                                news_array.append(article!)
-                                if(news_array.count == nids.count)
-                                {
-                                    self.tableView.reloadData()
-                                    SwiftSpinner.hide()
+            case 2:
+                newsClicked+=10
+                news_array = []
+                getStoryNids("news", count: "\(newsClicked)") { nids in
+                    dispatch_async(dispatch_get_main_queue()) {
+                        for(var i = 0; i < nids.count; i++)
+                        {
+                            getArticleForNid(nids[i] as! String) { article in
+                                dispatch_async(dispatch_get_main_queue()) {
+                                    news_array.append(article!)
+                                    if(news_array.count == nids.count)
+                                    {
+                                        self.tableView.reloadData()
+                                        SwiftSpinner.hide()
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
-        case 3:
-            sportsClicked+=10
-            sports_array = []
-            getStoryNids("sports", count: "\(sportsClicked)") { nids in
-                dispatch_async(dispatch_get_main_queue()) {
-                    for(var i = 0; i < nids.count; i++)
-                    {
-                        getArticleForNid(nids[i] as! String) { article in
-                            dispatch_async(dispatch_get_main_queue()) {
-                                sports_array.append(article!)
-                                if(sports_array.count == nids.count)
-                                {
-                                    self.tableView.reloadData()
-                                    SwiftSpinner.hide()
+            case 3:
+                sportsClicked+=10
+                sports_array = []
+                getStoryNids("sports", count: "\(sportsClicked)") { nids in
+                    dispatch_async(dispatch_get_main_queue()) {
+                        for(var i = 0; i < nids.count; i++)
+                        {
+                            getArticleForNid(nids[i] as! String) { article in
+                                dispatch_async(dispatch_get_main_queue()) {
+                                    sports_array.append(article!)
+                                    if(sports_array.count == nids.count)
+                                    {
+                                        self.tableView.reloadData()
+                                        SwiftSpinner.hide()
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
-        case 4:
-            opinionClicked+=10
-            opinion_array = []
-            getStoryNids("opinion", count: "\(opinionClicked)") { nids in
-                dispatch_async(dispatch_get_main_queue()) {
-                    for(var i = 0; i < nids.count; i++)
-                    {
-                        getArticleForNid(nids[i] as! String) { article in
-                            dispatch_async(dispatch_get_main_queue()) {
-                                opinion_array.append(article!)
-                                if(opinion_array.count == nids.count)
-                                {
-                                    self.tableView.reloadData()
-                                    SwiftSpinner.hide()
+            case 4:
+                opinionClicked+=10
+                opinion_array = []
+                getStoryNids("opinion", count: "\(opinionClicked)") { nids in
+                    dispatch_async(dispatch_get_main_queue()) {
+                        for(var i = 0; i < nids.count; i++)
+                        {
+                            getArticleForNid(nids[i] as! String) { article in
+                                dispatch_async(dispatch_get_main_queue()) {
+                                    opinion_array.append(article!)
+                                    if(opinion_array.count == nids.count)
+                                    {
+                                        self.tableView.reloadData()
+                                        SwiftSpinner.hide()
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
-        case 5:
-            columnsClicked+=10
-            columns_array = []
-            getStoryNids("opinion", count: "\(columnsClicked)") { nids in
-                dispatch_async(dispatch_get_main_queue()) {
-                    for(var i = 0; i < nids.count; i++)
-                    {
-                        getArticleForNid(nids[i] as! String) { article in
-                            dispatch_async(dispatch_get_main_queue()) {
-                                columns_array.append(article!)
-                                if(columns_array.count == nids.count)
-                                {
-                                    self.tableView.reloadData()
-                                    SwiftSpinner.hide()
+            case 5:
+                columnsClicked+=10
+                columns_array = []
+                getStoryNids("opinion", count: "\(columnsClicked)") { nids in
+                    dispatch_async(dispatch_get_main_queue()) {
+                        for(var i = 0; i < nids.count; i++)
+                        {
+                            getArticleForNid(nids[i] as! String) { article in
+                                dispatch_async(dispatch_get_main_queue()) {
+                                    columns_array.append(article!)
+                                    if(columns_array.count == nids.count)
+                                    {
+                                        self.tableView.reloadData()
+                                        SwiftSpinner.hide()
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
-        case 6:
-            featuresClicked+=10
-            features_array = []
-            getStoryNids("features", count: "\(featuresClicked)") { nids in
-                dispatch_async(dispatch_get_main_queue()) {
-                    for(var i = 0; i < nids.count; i++)
-                    {
-                        getArticleForNid(nids[i] as! String) { article in
-                            dispatch_async(dispatch_get_main_queue()) {
-                                features_array.append(article!)
-                                if(features_array.count == nids.count)
-                                {
-                                    self.tableView.reloadData()
-                                    SwiftSpinner.hide()
+            case 6:
+                featuresClicked+=10
+                features_array = []
+                getStoryNids("features", count: "\(featuresClicked)") { nids in
+                    dispatch_async(dispatch_get_main_queue()) {
+                        for(var i = 0; i < nids.count; i++)
+                        {
+                            getArticleForNid(nids[i] as! String) { article in
+                                dispatch_async(dispatch_get_main_queue()) {
+                                    features_array.append(article!)
+                                    if(features_array.count == nids.count)
+                                    {
+                                        self.tableView.reloadData()
+                                        SwiftSpinner.hide()
+                                    }
                                 }
                             }
                         }
                     }
                 }
+            default:
+                print("spotlight clicked")
             }
-        default:
-            print("spotlight clicked")
         }
-        
+        else
+        {
+            let alert = UIAlertController(title: "No Internet", message: "We've detected that you aren't connected to the internet. Please close the app and try again. Note that some features will not work without internet access.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
       
     }
     
@@ -324,6 +305,14 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch(self.tag) {
         case 1:
+            if(news_array.count == 0)
+            {
+                self.moreStoriesButton.setTitle("Load Stories...", forState: UIControlState.Normal)
+            }
+            else
+            {
+                self.moreStoriesButton.hidden = true
+            }
             return spotlight_array.count
         case 2:
             if(news_array.count == 0)

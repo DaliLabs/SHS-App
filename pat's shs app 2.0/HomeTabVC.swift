@@ -8,6 +8,31 @@
 import UIKit
 import Parse
 
+var internetConnection : Bool = true
+
+extension UIView {
+    class func loadFromNibNamed(nibNamed: String, bundle : NSBundle? = nil) -> UIView? {
+        return UINib(
+            nibName: nibNamed,
+            bundle: bundle
+            ).instantiateWithOwner(nil, options: nil)[0] as? UIView
+    }
+}
+
+
+
+@IBDesignable class aboutView : UIView
+{
+    @IBOutlet var view: aboutView!
+    
+    class func instanceFromNib() -> UIView {
+        return UINib(nibName: "aboutView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! UIView
+    }
+  
+    
+}
+
+
 class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, KenBurnsViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
@@ -19,10 +44,10 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
     var monthsLeft = 0
     var monthsArray = ["August", "September", "October", "November", "December",
         "January", "February", "March", "April", "May", "June", "July"]
+    var popup : KLCPopup!
+
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -32,45 +57,36 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
         self.month = components.month
         self.year = components.year
         
-        var query = PFQuery(className: "Calendar")
-        query.limit = 1000
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
-            if error == nil {
-                // The find succeeded.
-                print("Successfully retrieved \(objects!.count) events.")
-                // Do something with the found objects
-                if let objects = objects as [PFObject]! {
-                    for object in objects {
-                        self.anouncementsEventsArray.addObject(object)
+        if(Reachability.isConnectedToNetwork())
+        {
+            internetConnection = false
+            var query = PFQuery(className: "Calendar")
+            query.limit = 1000
+            query.findObjectsInBackgroundWithBlock {
+                (objects: [PFObject]?, error: NSError?) -> Void in
+                if error == nil {
+                    // The find succeeded.
+                    print("Successfully retrieved \(objects!.count) events.")
+                    // Do something with the found objects
+                    if let objects = objects as [PFObject]! {
+                        for object in objects {
+                            self.anouncementsEventsArray.addObject(object)
+                        }
+                        self.tableView.reloadData()
                     }
-                    self.tableView.reloadData()
+                    
+                } else {
+                    // Log details of the failure
+                    print("hello?")
+                    print("Error: \(error!) \(error!.userInfo)")
                 }
-                
-            } else {
-                // Log details of the failure
-                print("Error: \(error!) \(error!.userInfo)")
             }
         }
-        
-        getStoryNids("spotlight", count: "5") { nids in
-            dispatch_async(dispatch_get_main_queue()) {
-                for(var i = 0; i < nids.count; i++)
-                {
-                    getArticleForNid(nids[i] as! String) { article in
-                        dispatch_async(dispatch_get_main_queue()) {
-                            spotlight_array.append(article!)
-                            getImage(article!.photoURL) { image in
-                                imageArr.append(image!)
-                            }
-                            if(spotlight_array.count == nids.count)
-                            {
-                                
-                            }
-                        }
-                    }
-                }
-            }
+        else
+        {
+            let alert = UIAlertController(title: "No Internet", message: "We've detected that you aren't connected to the internet. Please close the app and try again. Note that some features will not work without internet access.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
         }
         
         
@@ -108,6 +124,13 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
         self.presentViewController(optionMenu, animated: true, completion: nil)
     }
     
+    @IBAction func aboutClicked(sender: AnyObject) {
+        let view = aboutView.instanceFromNib()
+        popup = KLCPopup(contentView: view, showType: KLCPopupShowType.BounceIn, dismissType: KLCPopupDismissType.FadeOut, maskType: KLCPopupMaskType.Dimmed, dismissOnBackgroundTouch: true, dismissOnContentTouch: true)
+        popup.show()
+    }
+    
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         if(month >= 8){
             self.monthsLeft = 19 - month
@@ -123,7 +146,14 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
         if(self.anouncementsEventsArray.count == 0)
         {
-            return "Loading Events..."
+            if(Reachability.isConnectedToNetwork())
+            {
+                return "Loading Events..."
+            }
+            else
+            {
+                return ""
+            }
         }
         for(var i=0; i<12; i++){
             if(i == section){
@@ -144,7 +174,6 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
             tableViewCount = 0
         }
         var indexOfCurMonth = 11 - monthsLeft
-        print("get ready")
         
         for (var i=0; i<anouncementsEventsArray.count; i++)
         {
@@ -232,6 +261,7 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("AnounceEvents", forIndexPath: indexPath) as! AnounceEventsCell
+        
         cell.name.text = String(self.anouncementsEventsArray[indexPath.row].objectForKey("Title")!)
         
         if let locationLabel = self.anouncementsEventsArray[indexPath.row].objectForKey("Description") {

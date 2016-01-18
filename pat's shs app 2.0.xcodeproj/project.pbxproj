@@ -23,6 +23,9 @@
 		219272B71C4C77E800D8A90B /* SwiftWebVCActivitySafari.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219272A81C4C77E800D8A90B /* SwiftWebVCActivitySafari.swift */; };
 		219272B81C4C77E800D8A90B /* SwiftWebVCActivitySafari@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 219272A91C4C77E800D8A90B /* SwiftWebVCActivitySafari@2x.png */; };
 		219272B91C4C77E800D8A90B /* SwiftWebVCActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219272AA1C4C77E800D8A90B /* SwiftWebVCActivity.swift */; };
+		219272BD1C4CA41E00D8A90B /* defaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 219272BC1C4CA41E00D8A90B /* defaultImage.png */; };
+		219272C11C4CABA300D8A90B /* KLCPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 219272C01C4CABA300D8A90B /* KLCPopup.m */; };
+		219272C41C4CB28A00D8A90B /* aboutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219272C31C4CB28A00D8A90B /* aboutView.xib */; };
 		9D61D9631BCC7E3300A0AF0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D61D9611BCC7E3300A0AF0F /* Main.storyboard */; };
 		9D61D9681BCC7E3300A0AF0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D61D9661BCC7E3300A0AF0F /* LaunchScreen.storyboard */; };
 		9D61D9731BCC7E3300A0AF0F /* pat_s_shs_app_2_0Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D61D9721BCC7E3300A0AF0F /* pat_s_shs_app_2_0Tests.swift */; };
@@ -125,6 +128,11 @@
 		219272AA1C4C77E800D8A90B /* SwiftWebVCActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftWebVCActivity.swift; sourceTree = "<group>"; };
 		219272AB1C4C77E800D8A90B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SwiftWebVC.strings"; sourceTree = "<group>"; };
 		219272AC1C4C77E800D8A90B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/SwiftWebVC.strings"; sourceTree = "<group>"; };
+		219272BC1C4CA41E00D8A90B /* defaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImage.png; sourceTree = "<group>"; };
+		219272BF1C4CABA300D8A90B /* KLCPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLCPopup.h; sourceTree = "<group>"; };
+		219272C01C4CABA300D8A90B /* KLCPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLCPopup.m; sourceTree = "<group>"; };
+		219272C21C4CABEC00D8A90B /* pat's shs app 2.0-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pat's shs app 2.0-Bridging-Header.h"; sourceTree = "<group>"; };
+		219272C31C4CB28A00D8A90B /* aboutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = aboutView.xib; sourceTree = "<group>"; };
 		9D61D95A1BCC7E3300A0AF0F /* pat's shs app 2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pat's shs app 2.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D61D9621BCC7E3300A0AF0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D61D9671BCC7E3300A0AF0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -276,6 +284,16 @@
 			path = Safari;
 			sourceTree = "<group>";
 		};
+		219272BE1C4CABA300D8A90B /* KLCPopup */ = {
+			isa = PBXGroup;
+			children = (
+				219272BF1C4CABA300D8A90B /* KLCPopup.h */,
+				219272C01C4CABA300D8A90B /* KLCPopup.m */,
+			);
+			name = KLCPopup;
+			path = SwiftWebVC/KLCPopup;
+			sourceTree = "<group>";
+		};
 		9D61D9511BCC7E3300A0AF0F = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +330,7 @@
 		9D61D95C1BCC7E3300A0AF0F /* pat's shs app 2.0 */ = {
 			isa = PBXGroup;
 			children = (
+				219272BE1C4CABA300D8A90B /* KLCPopup */,
 				219272921C4C77E800D8A90B /* SwiftWebVC */,
 				9D61D99F1BCC812000A0AF0F /* All Tabs */,
 				9D61D98B1BCC7EF900A0AF0F /* AppDelegate.swift */,
@@ -320,6 +339,8 @@
 				9D61D99B1BCC802200A0AF0F /* Images.xcassets */,
 				9D61D9661BCC7E3300A0AF0F /* LaunchScreen.storyboard */,
 				9D61D9691BCC7E3300A0AF0F /* Info.plist */,
+				219272BC1C4CA41E00D8A90B /* defaultImage.png */,
+				219272C21C4CABEC00D8A90B /* pat's shs app 2.0-Bridging-Header.h */,
 			);
 			path = "pat's shs app 2.0";
 			sourceTree = "<group>";
@@ -411,6 +432,7 @@
 		9DF06D371BDD7F1600E34C75 /* HomeTab */ = {
 			isa = PBXGroup;
 			children = (
+				219272C31C4CB28A00D8A90B /* aboutView.xib */,
 				9D61D9931BCC7FB200A0AF0F /* HomeTabVC.swift */,
 				9DFEFDD41BE6D611003462C8 /* AnounceEventsCell.swift */,
 			);
@@ -578,6 +600,7 @@
 				219272B81C4C77E800D8A90B /* SwiftWebVCActivitySafari@2x.png in Resources */,
 				9D770AD61C3A03A800C5FB94 /* demo.png in Resources */,
 				219272B61C4C77E800D8A90B /* SwiftWebVCActivitySafari-iPad@2x.png in Resources */,
+				219272C41C4CB28A00D8A90B /* aboutView.xib in Resources */,
 				219272AD1C4C77E800D8A90B /* SwiftWebVC.strings in Resources */,
 				9D770ACC1C3A03A800C5FB94 /* businessbg.jpg in Resources */,
 				9D770AD11C3A03A800C5FB94 /* tech.png in Resources */,
@@ -592,6 +615,7 @@
 				9D770AD51C3A03A800C5FB94 /* bg@2x.jpg in Resources */,
 				9D770ACE1C3A03A800C5FB94 /* highlights.png in Resources */,
 				9D770AD71C3A03A800C5FB94 /* menu.png in Resources */,
+				219272BD1C4CA41E00D8A90B /* defaultImage.png in Resources */,
 				9D770AD31C3A03A800C5FB94 /* sports.png in Resources */,
 				9D770ACA1C3A03A800C5FB94 /* applebg.png in Resources */,
 				9D770AD81C3A03A800C5FB94 /* search.png in Resources */,
@@ -643,6 +667,7 @@
 				9D770AE81C3A03B700C5FB94 /* UITableView+Frames.swift in Sources */,
 				9D61D98E1BCC7F9900A0AF0F /* BellTabVC.swift in Sources */,
 				9D770AC61C3A03A800C5FB94 /* SwiftSpinner.swift in Sources */,
+				219272C11C4CABA300D8A90B /* KLCPopup.m in Sources */,
 				211BD4E41C4B4DCB00984440 /* CustomNavigation.swift in Sources */,
 				9DFEFDD51BE6D611003462C8 /* AnounceEventsCell.swift in Sources */,
 				9D770AF31C3A03CA00C5FB94 /* Utility.swift in Sources */,

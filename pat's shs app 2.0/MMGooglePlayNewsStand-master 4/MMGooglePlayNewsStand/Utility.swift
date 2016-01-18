@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SystemConfiguration
 
 extension NSMutableURLRequest {
     func setBodyContent(contentMap: Dictionary<String, String>) {
@@ -28,6 +29,10 @@ extension NSMutableURLRequest {
         self.HTTPBody = contentBodyAsString.dataUsingEncoding(NSUTF8StringEncoding)
     }
 }
+
+import Foundation
+import SystemConfiguration
+
 
 class Article : NSObject
 {
@@ -56,9 +61,36 @@ class Article : NSObject
 }
 
 
+public class Reachability {
+    class func isConnectedToNetwork() -> Bool {
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(sizeofValue(zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        let defaultRouteReachability = withUnsafePointer(&zeroAddress) {
+            SCNetworkReachabilityCreateWithAddress(nil, UnsafePointer($0))
+        }
+        var flags = SCNetworkReachabilityFlags()
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+            return false
+        }
+        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+        return (isReachable && !needsConnection)
+    }
+}
+
 // Section is, for example: Sports, opnion, spotlight, etc;.
 // Count is how many stories you want. (Ex: getStoryNids("sports", "4") would give you the
 // 4 most recent stories.
+
+func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+    return UIColor(
+        red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+        green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+        blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+        alpha: CGFloat(1.0)
+    )
+}
 
 
 func getStoryNids(section: String, count : String, completion : ((nids : [AnyObject]) -> Void)){
@@ -75,15 +107,21 @@ func getStoryNids(section: String, count : String, completion : ((nids : [AnyObj
     request.setBodyContent(parameters)
     
     let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+        if(data != nil)
+        {
+            var strData = NSString(data: data!, encoding: NSUTF8StringEncoding)!
+            strData = strData.stringByReplacingOccurrencesOfString("[", withString: "")
+            strData = strData.stringByReplacingOccurrencesOfString("]", withString: "")
+            strData = strData.stringByReplacingOccurrencesOfString("\"", withString: "")
+            var nids : [AnyObject] = strData.componentsSeparatedByString(",")
+            completion(nids: nids)
+        }
         
-        var strData = NSString(data: data!, encoding: NSUTF8StringEncoding)!
-        strData = strData.stringByReplacingOccurrencesOfString("[", withString: "")
-        strData = strData.stringByReplacingOccurrencesOfString("]", withString: "")
-        strData = strData.stringByReplacingOccurrencesOfString("\"", withString: "")
-        var nids : [AnyObject] = strData.componentsSeparatedByString(",")
-        
-        completion(nids: nids)
-        
+        else if(data == nil)
+        {
+
+
+        }
         /*
         for(var i = 0; i < nids.count; i++)
         {
@@ -95,11 +133,14 @@ func getStoryNids(section: String, count : String, completion : ((nids : [AnyObj
         }
         */
         
-        if(error != nil) {
+        else if(error != nil) {
             print(error!.localizedDescription)
-            let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print("Error could not parse JSON: '\(jsonStr)'")
-            completion(nids: [])
+            if(data != nil)
+            {
+                let jsonStr = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                print("Error could not parse JSON: '\(jsonStr)'")
+                completion(nids: [])
+            }
         }
         
     })

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4fu-uK-zor">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4fu-uK-zor">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -238,6 +238,18 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="homeTab" id="akh-rR-EtO"/>
                     <navigationItem key="navigationItem" title="Home" id="j2f-j4-9GE">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Kpd-p6-jIM">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="soJ-eZ-eyU">
+                                <rect key="frame" x="16" y="7" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="About">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="aboutClicked:" destination="Jbw-li-EGN" eventType="touchUpInside" id="I3s-j6-PT7"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="rgL-ql-oet">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Rlc-FQ-eLe">
                                 <rect key="frame" x="254" y="7" width="50" height="30"/>
@@ -252,6 +264,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="aboutButton" destination="soJ-eZ-eyU" id="IhQ-Nv-vhX"/>
                         <outlet property="gradesButton" destination="Rlc-FQ-eLe" id="io0-2A-wDM"/>
                         <outlet property="tableView" destination="AeC-hN-f4Z" id="okR-bc-bfz"/>
                     </connections>

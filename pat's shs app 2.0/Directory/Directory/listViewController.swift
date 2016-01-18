@@ -44,36 +44,45 @@ class listViewController: UIViewController, UITableViewDelegate, UITableViewData
     var filteredStaff = [staffMember]()
     
     override func viewWillAppear(animated: Bool) {
-        var query = PFQuery(className: "Staff")
-        query.limit = 1000
-        if(self.allStaff.count == 0)
+        if(Reachability.isConnectedToNetwork())
         {
-            query.findObjectsInBackgroundWithBlock {
-                (objects: [PFObject]?, error: NSError?) -> Void in
-                if error == nil {
-                    // The find succeeded.
-                    print("Successfully retrieved \(objects!.count) events.")
-                    // Do something with the found objects
-                    if let objects = objects as [PFObject]! {
-                        for object in objects {
-                            self.allStaff.addObject(object)
+            var query = PFQuery(className: "Staff")
+            query.limit = 1000
+            if(self.allStaff.count == 0)
+            {
+                query.findObjectsInBackgroundWithBlock {
+                    (objects: [PFObject]?, error: NSError?) -> Void in
+                    if error == nil {
+                        // The find succeeded.
+                        print("Successfully retrieved \(objects!.count) events.")
+                        // Do something with the found objects
+                        if let objects = objects as [PFObject]! {
+                            for object in objects {
+                                self.allStaff.addObject(object)
+                            }
+                            
+                        } else {
+                            // Log details of the failure
+                            print("Error: \(error!) \(error!.userInfo)")
+                        }
+                        for(var i = 0; i < self.allStaff.count; i++)
+                        {
+                            self.staffMembers.append(staffMember(name: self.allStaff[i].objectForKey("Name") as! String, type: self.allStaff[i].objectForKey("Type") as! String, email : self.allStaff[i].objectForKey("Email") as! String, website : self.allStaff[i].objectForKey("Website") as! String))
+                            if(self.allStaff.count == self.staffMembers.count)
+                            {
+                                self.listView.reloadData()
+                            }
                         }
                         
-                    } else {
-                        // Log details of the failure
-                        print("Error: \(error!) \(error!.userInfo)")
                     }
-                    for(var i = 0; i < self.allStaff.count; i++)
-                    {
-                        self.staffMembers.append(staffMember(name: self.allStaff[i].objectForKey("Name") as! String, type: self.allStaff[i].objectForKey("Type") as! String, email : self.allStaff[i].objectForKey("Email") as! String, website : self.allStaff[i].objectForKey("Website") as! String))
-                        if(self.allStaff.count == self.staffMembers.count)
-                        {
-                            self.listView.reloadData()
-                        }
-                    }
-    
                 }
             }
+        }
+        else
+        {
+            let alert = UIAlertController(title: "No Internet", message: "We've detected that you aren't connected to the internet. Please close the app and try again. Note that some features will not work without internet access.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
         }
 
     }
