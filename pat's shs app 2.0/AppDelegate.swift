@@ -15,8 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var walkthrough:MMPlayStandPageViewController?
+    var plistPathInDocument:String = String()
+    var plist2PathInDocument:String = String()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        self.preparePlist()
+        self.preparePlist2()
         // Override point for customization after application launch.
         UINavigationBar.appearance().barTintColor = UIColor.redColor()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
@@ -27,6 +32,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("mBeDrmdeuRATh3rO7CqbTZMYKcXkuSrCKPEkPFDG", clientKey: "VoIiZFddiKtfH9i7iz5jyQMsT9H45KgnDUOtEDo2")
 
         return true
+    }
+    
+    
+    func preparePlist()
+    {
+        let rootPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, .UserDomainMask, true)[0]
+        let url = NSURL(string: rootPath)
+        plistPathInDocument = (url?.URLByAppendingPathComponent("planner.plist").path)!
+        
+        if !NSFileManager.defaultManager().fileExistsAtPath(plistPathInDocument){
+            let plistPathInBundle = NSBundle.mainBundle().pathForResource("planner", ofType: "plist")!
+            do {
+                try NSFileManager.defaultManager().copyItemAtPath(plistPathInBundle, toPath: plistPathInDocument)
+                print("plist copied")
+            }
+            catch{
+                print("error copying plist!")
+            }
+        }
+        else{
+            print("plst exists \(plistPathInDocument)")
+        }
+        
+    }
+    
+    
+    func preparePlist2()
+    {
+        let rootPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, .UserDomainMask, true)[0]
+        let url = NSURL(string: rootPath)
+        plist2PathInDocument = (url?.URLByAppendingPathComponent("sortedSections.plist").path)!
+        
+        if !NSFileManager.defaultManager().fileExistsAtPath(plist2PathInDocument){
+            let plistPathInBundle = NSBundle.mainBundle().pathForResource("sortedSections", ofType: "plist")!
+            do {
+                try NSFileManager.defaultManager().copyItemAtPath(plistPathInBundle, toPath: plist2PathInDocument)
+                print("plist copied")
+            }
+            catch{
+                print("error copying plist!")
+            }
+        }
+        else{
+            print("plst exists \(plist2PathInDocument)")
+        }
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "09363B7168029CE64B07AED16F21E76817F7571A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "09363B7168029CE64B07AED16F21E76817F7571A" : 0,
+    "84FD4B615E6CD5AAC8A62197DB198D6C0AA7ABE1" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "CF04DDAA-6834-4AA9-B9D2-64B8C890622B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "09363B7168029CE64B07AED16F21E76817F7571A" : "SHS-App-master\/",
+    "84FD4B615E6CD5AAC8A62197DB198D6C0AA7ABE1" : "shsapp"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "pat's shs app 2.0",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "pat's shs app 2.0.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/DaliLabs\/SHS-App.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "09363B7168029CE64B07AED16F21E76817F7571A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/DaliLabs\/SHS-App.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "84FD4B615E6CD5AAC8A62197DB198D6C0AA7ABE1"
+    }
+  ]
+}

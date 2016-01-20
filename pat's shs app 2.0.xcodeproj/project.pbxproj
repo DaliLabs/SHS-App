@@ -10,6 +10,8 @@
 		211BD4DE1C4AEAF200984440 /* AddAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BD4DD1C4AEAF200984440 /* AddAssignmentViewController.swift */; };
 		211BD4E01C4AEB3600984440 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BD4DF1C4AEB3600984440 /* Assignment.swift */; };
 		211BD4E41C4B4DCB00984440 /* CustomNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211BD4E31C4B4DCB00984440 /* CustomNavigation.swift */; };
+		2148021A1C4F3A4D009E9B3D /* planner.plist in Resources */ = {isa = PBXBuildFile; fileRef = 214802191C4F3A4D009E9B3D /* planner.plist */; };
+		2148021C1C4F53D2009E9B3D /* sortedSections.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2148021B1C4F53D2009E9B3D /* sortedSections.plist */; };
 		219272AD1C4C77E800D8A90B /* SwiftWebVC.strings in Resources */ = {isa = PBXBuildFile; fileRef = 219272931C4C77E800D8A90B /* SwiftWebVC.strings */; };
 		219272AE1C4C77E800D8A90B /* SwiftModalWebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2192729C1C4C77E800D8A90B /* SwiftModalWebVC.swift */; };
 		219272AF1C4C77E800D8A90B /* SwiftWebVC.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2192729D1C4C77E800D8A90B /* SwiftWebVC.bundle */; };
@@ -106,6 +108,8 @@
 		211BD4DD1C4AEAF200984440 /* AddAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAssignmentViewController.swift; sourceTree = "<group>"; };
 		211BD4DF1C4AEB3600984440 /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		211BD4E31C4B4DCB00984440 /* CustomNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigation.swift; sourceTree = "<group>"; };
+		214802191C4F3A4D009E9B3D /* planner.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = planner.plist; path = ../planner.plist; sourceTree = "<group>"; };
+		2148021B1C4F53D2009E9B3D /* sortedSections.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sortedSections.plist; sourceTree = "<group>"; };
 		219272941C4C77E800D8A90B /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/SwiftWebVC.strings; sourceTree = "<group>"; };
 		219272951C4C77E800D8A90B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SwiftWebVC.strings; sourceTree = "<group>"; };
 		219272961C4C77E800D8A90B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SwiftWebVC.strings; sourceTree = "<group>"; };
@@ -464,6 +468,8 @@
 		9DF06D3A1BDD7F4800E34C75 /* PlannerTab */ = {
 			isa = PBXGroup;
 			children = (
+				214802191C4F3A4D009E9B3D /* planner.plist */,
+				2148021B1C4F53D2009E9B3D /* sortedSections.plist */,
 				9D61D9951BCC7FB800A0AF0F /* Planner.swift */,
 				211BD4DF1C4AEB3600984440 /* Assignment.swift */,
 				211BD4DD1C4AEAF200984440 /* AddAssignmentViewController.swift */,
@@ -601,6 +607,7 @@
 				9D770AD61C3A03A800C5FB94 /* demo.png in Resources */,
 				219272B61C4C77E800D8A90B /* SwiftWebVCActivitySafari-iPad@2x.png in Resources */,
 				219272C41C4CB28A00D8A90B /* aboutView.xib in Resources */,
+				2148021C1C4F53D2009E9B3D /* sortedSections.plist in Resources */,
 				219272AD1C4C77E800D8A90B /* SwiftWebVC.strings in Resources */,
 				9D770ACC1C3A03A800C5FB94 /* businessbg.jpg in Resources */,
 				9D770AD11C3A03A800C5FB94 /* tech.png in Resources */,
@@ -608,6 +615,7 @@
 				9D770ACD1C3A03A800C5FB94 /* worldbg.jpg in Resources */,
 				9D770AD21C3A03A800C5FB94 /* business.png in Resources */,
 				9D61D9681BCC7E3300A0AF0F /* LaunchScreen.storyboard in Resources */,
+				2148021A1C4F3A4D009E9B3D /* planner.plist in Resources */,
 				9D770AC91C3A03A800C5FB94 /* ironman.jpg in Resources */,
 				219272B21C4C77E800D8A90B /* SwiftWebVCActivityChrome-iPad@2x.png in Resources */,
 				9D770AD41C3A03A800C5FB94 /* news.png in Resources */,

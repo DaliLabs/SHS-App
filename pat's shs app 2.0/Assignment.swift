@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Assignment: NSObject {
+class Assignment: NSObject, NSCoding {
     let name : String
     var dueDate : String
     init(name: String, dueDate : String)
@@ -18,5 +18,17 @@ class Assignment: NSObject {
         self.dueDate = dueDate
     }
     
+    
+    required init(coder decoder : NSCoder)
+    {
+        self.name = decoder.decodeObjectForKey("name") as! String
+        self.dueDate = decoder.decodeObjectForKey("dueDate") as! String
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(self.name, forKey: "name")
+        aCoder.encodeObject(self.dueDate, forKey: "dueDate")
+    }
+
 }
 

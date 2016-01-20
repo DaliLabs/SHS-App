@@ -13,11 +13,55 @@ NSUserDefaults.standardUserDefaults().setInteger(highScore, forKey: "highscore")
 NSUserDefaults.standardUserDefaults().synchronize()
 */
 
+protocol JSONAble {}
+
+extension JSONAble {
+    func toDict() -> [String:Any] {
+        var dict = [String:Any]()
+        let otherSelf = Mirror(reflecting: self)
+        for child in otherSelf.children {
+            if let key = child.label {
+                dict[key] = child.value
+            }
+        }
+        return dict
+    }
+}
+
+var numOfViewWillAppear : Int = 0
+
 class PlannerVC: UITableViewController {
     
     var sections = Dictionary<String, Array<Assignment>>()
     var sortedSections = [String]()
-
+    var plistPath : String!
+    var plistPath2 : String!
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        plistPath = appDelegate.plistPathInDocument
+        plistPath2 = appDelegate.plist2PathInDocument
+        // Extract the content of the file as NSData
+        let data:NSData =  NSFileManager.defaultManager().contentsAtPath(plistPath)!
+        let data2:NSData = NSFileManager.defaultManager().contentsAtPath(plistPath2)!
+        do{
+            if(numOfViewWillAppear == 0)
+            {
+        
+                if let _ = NSKeyedUnarchiver.unarchiveObjectWithData(data2)
+                {
+                    self.sortedSections = NSKeyedUnarchiver.unarchiveObjectWithData(data2) as! [String]
+                    self.sections = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! Dictionary
+                }
+                numOfViewWillAppear++
+            }
+    
+        }
+        
+        self.tableView.reloadData()
+    }
+    
     @IBAction func unwindAndAddToList(segue: UIStoryboardSegue) {
         
         let source = segue.sourceViewController as! AddAssignmentViewController
@@ -26,18 +70,37 @@ class PlannerVC: UITableViewController {
             if(self.sections.indexForKey(todoItem.dueDate) == nil)
             {
                 self.sections[todoItem.dueDate] = [Assignment(name: todoItem.name, dueDate: todoItem.dueDate)]
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                plistPath = appDelegate.plistPathInDocument
+                do{
+                    let sectionsData = NSKeyedArchiver.archivedDataWithRootObject(sections)
+                    sectionsData.writeToFile(plistPath, atomically: true)
+                }
             }
             else
             {
                 self.sections[todoItem.dueDate]!.append(Assignment(name: todoItem.name, dueDate: todoItem.dueDate))
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                plistPath = appDelegate.plistPathInDocument
+                do {
+                    let sectionsData = NSKeyedArchiver.archivedDataWithRootObject(sections)
+                    sectionsData.writeToFile(plistPath, atomically: true)
+                }
             }
-            
             self.sortedSections = self.sections.keys.sort()
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            plistPath2 = appDelegate.plist2PathInDocument
+            do {
+                let sortedData = NSKeyedArchiver.archivedDataWithRootObject(self.sortedSections)
+                sortedData.writeToFile(plistPath2, atomically: true)
+            }
+    
         }
         self.tableView.reloadData()
         
     }
-    
+
+
     @IBAction func unwindToList(segue: UIStoryboardSegue) {
         
     }
@@ -74,6 +137,15 @@ class PlannerVC: UITableViewController {
             tableSection!.removeAtIndex(indexPath.row)
             sections[sortedSections[indexPath.section]] = tableSection
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            plistPath = appDelegate.plistPathInDocument
+            plistPath2 = appDelegate.plist2PathInDocument
+            do {
+                let sectionsData = NSKeyedArchiver.archivedDataWithRootObject(sections)
+                sectionsData.writeToFile(plistPath, atomically: true)
+                let sortedData = NSKeyedArchiver.archivedDataWithRootObject(sortedSections)
+                sortedData.writeToFile(plistPath2, atomically: true)
+            }
         }
     }
     
