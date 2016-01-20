@@ -190,12 +190,12 @@ class SwiftWebVC: UIViewController, UIWebViewDelegate {
     
             if !closing {
                 if presentingViewController == nil {
-                    navigationController!.toolbar.barTintColor = navigationController!.navigationBar.barTintColor
+                    //navigationController!.toolbar.barTintColor = navigationController!.navigationBar.barTintColor
                 }
                 else {
-                    navigationController!.toolbar.barStyle = navigationController!.navigationBar.barStyle
+                    //navigationController!.toolbar.barStyle = navigationController!.navigationBar.barStyle
                 }
-                navigationController!.toolbar.tintColor = navigationController!.navigationBar.tintColor
+                //navigationController!.toolbar.tintColor = navigationController!.navigationBar.tintColor
                 toolbarItems = items as? [UIBarButtonItem]
             }
         }

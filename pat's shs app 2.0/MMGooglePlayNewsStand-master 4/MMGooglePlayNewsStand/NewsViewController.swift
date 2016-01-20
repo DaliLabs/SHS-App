@@ -38,6 +38,7 @@ var columns_array : [Article] = []
 var features_array : [Article] = []
 var imageArr : [AnyObject] = []
 
+var loadImages : Bool = true
 
 class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,MMPlayPageScroll ,UIScrollViewDelegate, MMPlayPageControllerDelegate{
     
@@ -167,9 +168,16 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
                             getArticleForNid(nids[i] as! String) { article in
                                 dispatch_async(dispatch_get_main_queue()) {
                                     spotlight_array.append(article!)
+                                    if(loadImages == true) {
+                                        getImage(article!.photoURL) { image in
+                                            imageArr.append(image!)
+                                            print("go here")
+                                        }
+                                    }
                                     if(spotlight_array.count == nids.count)
                                     {
                                         self.tableView.reloadData()
+                                        loadImages = false
                                         SwiftSpinner.hide()
                                     }
                                 }
