@@ -239,14 +239,12 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         startMin = mondayMintuesTotal[i]
                         endMin = mondayMintuesTotal[i+1]
                     }
-                    else if (totalCurrMinutes >= mondayMintuesTotal[0] && totalCurrMinutes < mondayMintuesTotal[mondayMintuesTotal.count-1]){
-                        timeBarLabel.text = "Passing!"
-                    }
-                    else{
-                        timeBarLabel.text = "School's Out!"
-                    }
                 }
-                    
+
+                else if (totalCurrMinutes >= mondayMintuesTotal[0] && totalCurrMinutes < mondayMintuesTotal[mondayMintuesTotal.count-1]){
+                    timeBarLabel.text = "Passing!"
+                }
+
                 else if (totalCurrMinutes < mondayMintuesTotal[0] || totalCurrMinutes >= mondayMintuesTotal[mondayMintuesTotal.count-1]){
                     timeBarLabel.text = "School's Out!"
                 }
@@ -300,14 +298,11 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         startMin = tuesdayMinutesTotal[i]
                         endMin = tuesdayMinutesTotal[i+1]
                     }
-                    else if (totalCurrMinutes >= tuesdayMinutesTotal[0] && totalCurrMinutes < tuesdayMinutesTotal[tuesdayMinutesTotal.count-1]){
-                        timeBarLabel.text = "Passing!"
-                    }
-                    else{
-                        timeBarLabel.text = "School's Out!"
-                    }
                 }
-                    
+                else if (totalCurrMinutes >= tuesdayMinutesTotal[0] && totalCurrMinutes < tuesdayMinutesTotal[tuesdayMinutesTotal.count-1]){
+                    timeBarLabel.text = "Passing!"
+                }
+
                 else if (totalCurrMinutes < tuesdayMinutesTotal[0] || totalCurrMinutes >= tuesdayMinutesTotal[tuesdayMinutesTotal.count-1]){
                     timeBarLabel.text = "School's Out!"
                 }
@@ -365,16 +360,12 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         endMin = wednesdayMinutesTotal[i+1]
                         
                     }
-                    else if (totalCurrMinutes >= wednesdayMinutesTotal[0] && totalCurrMinutes < wednesdayMinutesTotal[wednesdayMinutesTotal.count-1]){
-                        timeBarLabel.text = "Passing!"
-                    }
-                    else{
-                        timeBarLabel.text = "School's Out!"
-                        
-                    }
                     
                 }
-                    
+                else if (totalCurrMinutes >= wednesdayMinutesTotal[0] && totalCurrMinutes < wednesdayMinutesTotal[wednesdayMinutesTotal.count-1]){
+                    timeBarLabel.text = "Passing!"
+                }
+
                 else if (totalCurrMinutes < wednesdayMinutesTotal[0] || totalCurrMinutes >= wednesdayMinutesTotal[wednesdayMinutesTotal.count-1]){
                     timeBarLabel.text = "School's Out!"
                 }
@@ -426,11 +417,11 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                             startMin = thursdayMinutesTotal[i]
                             endMin = thursdayMinutesTotal[i+1]
                         }
-                        else if (totalCurrMinutes >= thursdayMinutesTotal[0] && totalCurrMinutes < thursdayMinutesTotal[thursdayMinutesTotal.count-1]){
-                            timeBarLabel.text = "Passing!"
-                        }
                     }
-                        
+                    else if (totalCurrMinutes >= thursdayMinutesTotal[0] && totalCurrMinutes < thursdayMinutesTotal[thursdayMinutesTotal.count-1]){
+                        timeBarLabel.text = "Passing!"
+                    }
+
                     else if (totalCurrMinutes < thursdayMinutesTotal[0] || totalCurrMinutes >= thursdayMinutesTotal[thursdayMinutesTotal.count-1]){
                         timeBarLabel.text = "School's Out!"
                     }
@@ -484,13 +475,12 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         startMin = fridayMinutesTotal[i]
                         endMin = fridayMinutesTotal[i+1]
                     }
-                    else if (totalCurrMinutes >= fridayMinutesTotal[0] && totalCurrMinutes < fridayMinutesTotal[fridayMinutesTotal.count-1]){
-                        timeBarLabel.text = "Passing!"
-                    }
-                    else{
-                        timeBarLabel.text = "School's Out!"
-                    }
                 }
+
+                else if (totalCurrMinutes >= fridayMinutesTotal[0] && totalCurrMinutes < fridayMinutesTotal[fridayMinutesTotal.count-1]){
+                    timeBarLabel.text = "Passing!"
+                }
+
                 else if (totalCurrMinutes < fridayMinutesTotal[0] || totalCurrMinutes >= fridayMinutesTotal[fridayMinutesTotal.count-1]){
                     timeBarLabel.text = "School's Out!"
                 }
