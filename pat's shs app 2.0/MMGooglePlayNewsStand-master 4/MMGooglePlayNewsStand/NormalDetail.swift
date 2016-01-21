@@ -16,6 +16,7 @@ class NormalDetail: UIViewController {
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
     
     override func viewDidLoad() {
         SwiftSpinner.hide()
@@ -40,6 +41,7 @@ class NormalDetail: UIViewController {
         textViewDemo.text = bodyToPass.stripHTML()
         textViewDemo.font = UIFont(name: "Helvetica-Light", size: CGFloat(15))
         titleLabel.text = titleToPass
+        authorLabel.text = "By \(authorToPass)"
         navBar.addSubview(navBut)
         navBar.addSubview(navTitle)
         view.addSubview(navBar)

@@ -32,6 +32,7 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDelegate {
     func datePickerChanged(datePicker:UIDatePicker) -> String {
         var dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        
         var strDate = dateFormatter.stringFromDate(datePicker.date)
         return strDate
     }

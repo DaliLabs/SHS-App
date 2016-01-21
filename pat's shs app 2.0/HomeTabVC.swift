@@ -50,7 +50,6 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
     override func viewWillAppear(animated: Bool) {
         tableView.delegate = self
         tableView.dataSource = self
-        
         var date = NSDate()
         var calendar = NSCalendar.currentCalendar()
         var components = calendar.components(NSCalendarUnit.Year.union(NSCalendarUnit.Minute).union(NSCalendarUnit.Hour).union(NSCalendarUnit.Month).union(NSCalendarUnit.Day).union(NSCalendarUnit.Second), fromDate: date)
@@ -59,6 +58,26 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
         
         if(Reachability.isConnectedToNetwork())
         {
+            getStoryNids("spotlight", count: "5") { nids in
+                dispatch_async(dispatch_get_main_queue()) {
+                    for(var i = 0; i < nids.count; i++)
+                    {
+                        getArticleForNid(nids[i] as! String) { article in
+                            dispatch_async(dispatch_get_main_queue()) {
+                                if(loadImages == true) {
+                                    getImage(article!.photoURL) { image in
+                                        imageArr.append(image!)
+                                    }
+                                }
+                                if(spotlight_array.count == nids.count)
+                                {
+                                    loadImages = false
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             internetConnection = false
             var query = PFQuery(className: "Calendar")
             query.limit = 1000

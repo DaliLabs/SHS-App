@@ -30,6 +30,7 @@ func uniq<S : SequenceType, T : Hashable where S.Generator.Element == T>(source:
 var bodyToPass : String = ""
 var imageToPass : String = ""
 var titleToPass : String = ""
+var authorToPass : String = ""
 var spotlight_array : [Article] = []
 var news_array : [Article] = []
 var sports_array : [Article] = []
@@ -61,12 +62,19 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var tag = 0 as Int
     
+    override func viewWillAppear(animated: Bool) {
+        
+    }
+    
     override func viewDidAppear(animated: Bool) {
         SwiftSpinner.hide()
     }
     
     override func viewDidLoad() {
-        imageArr = [UIImage(named: "defaultImage.png")!]
+        if(imageArr.count == 0)
+        {
+            imageArr.append(UIImage(imageLiteral: "defaultImage.png"))
+        }
         transitionManager = TransitionModel()
         super.viewDidLoad()
         self.tableView.delegate=self;
@@ -75,11 +83,7 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
         header.frame=CGRectMake(0, 0, self.view.frame.width, 200);
         headerImage.frame=CGRectMake(header.center.x-30, header.center.y-30, 60, 60)
         headerImage.layer.cornerRadius=headerImage.frame.width/2
-
-       
         headerImage.tintColor=UIColor.whiteColor()
-        
-        
         header.backgroundColor=UIColor.clearColor()
         
         //        header.addSubview(headerImage)
@@ -127,17 +131,17 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
             
         case 2:
              headerImage.backgroundColor=UIColor(hexString: "009688")
-              headerImage.image=UIImage(named: "sports")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+              headerImage.image=UIImage(named: "tech")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
             break
             
         case 3:
              headerImage.backgroundColor=UIColor(hexString: "673ab7")
-              headerImage.image=UIImage(named: "movie")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+              headerImage.image=UIImage(named: "sports")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
             break
             
         case 4:
              headerImage.backgroundColor=UIColor(hexString: "ff9800")
-              headerImage.image=UIImage(named: "tech")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+              headerImage.image=UIImage(named: "movie")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
             break
             
         case 5:
@@ -168,16 +172,9 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
                             getArticleForNid(nids[i] as! String) { article in
                                 dispatch_async(dispatch_get_main_queue()) {
                                     spotlight_array.append(article!)
-                                    if(loadImages == true) {
-                                        getImage(article!.photoURL) { image in
-                                            imageArr.append(image!)
-                                            print("go here")
-                                        }
-                                    }
                                     if(spotlight_array.count == nids.count)
                                     {
                                         self.tableView.reloadData()
-                                        loadImages = false
                                         SwiftSpinner.hide()
                                     }
                                 }
@@ -419,26 +416,33 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
         //normalDetail.transitioningDelegate = transitionManager;
         switch (self.tag) {
         case 1:
+            authorToPass = spotlight_array[indexPath.row].author
             bodyToPass = spotlight_array[indexPath.row].body
             titleToPass = spotlight_array[indexPath.row].title
             imageToPass = spotlight_array[indexPath.row].photoURL
             appDelegate.walkthrough?.presentViewController(detail, animated: true, completion: nil)
         case 2:
+            authorToPass = news_array[indexPath.row].author
             bodyToPass = news_array[indexPath.row].body
             titleToPass = news_array[indexPath.row].title
         case 3:
+            authorToPass = sports_array[indexPath.row].author
             bodyToPass = sports_array[indexPath.row].body
             titleToPass = sports_array[indexPath.row].title
         case 4:
+            authorToPass = opinion_array[indexPath.row].author
             bodyToPass = opinion_array[indexPath.row].body
             titleToPass = opinion_array[indexPath.row].title
         case 5:
+            authorToPass = columns_array[indexPath.row].author
             bodyToPass = columns_array[indexPath.row].body
             titleToPass = columns_array[indexPath.row].title
         case 6:
+            authorToPass = features_array[indexPath.row].author
             bodyToPass = features_array[indexPath.row].body
             titleToPass = features_array[indexPath.row].title
         default:
+            authorToPass = news_array[indexPath.row].author
             bodyToPass = news_array[indexPath.row].body
             titleToPass = news_array[indexPath.row].title
         }

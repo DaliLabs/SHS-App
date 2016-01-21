@@ -304,20 +304,11 @@ At the moment it's only used to perform custom animations on didScroll.
             createHorizontalScroller()
             //currentColor=colors[0]
             self.bannerAlpha.mdInflateAnimatedFromPoint(CGPointMake(self.bannerImage.center.x , self.bannerImage.center.y), backgroundColor: self.currentColor, duration: 0.6, completion: nil)
-            var images :[UIImage]!
-            images=Array()
-            for(var i = 0; i < imageArr.count; i++)
-            {
-                images.append(imageArr[i] as! UIImage)
-            }
-            bannerImage.animateWithImages(images, transitionDuration:6, initialDelay: 0, loop: true, isLandscape: true)
+            self.bannerImage.animateWithImages(imageArr, transitionDuration: 3.0, initialDelay: 0, loop: true, isLandscape: true)
         }
         vcCalled = true
     }
-    
-    
 
-    
     // MARK: - Tap Gesture
     
     
@@ -517,9 +508,7 @@ At the moment it's only used to perform custom animations on didScroll.
                 // We animate only the previous, current and next page
                 //                NSLog("%f %f", scrollview.contentOffset.x,mx)
                 if(mx < 2 && mx > -2.0){
-                    
                     vc.walkthroughDidScroll(scrollview.contentOffset.x, offset: mx)
-                    
                 }
             }
         }

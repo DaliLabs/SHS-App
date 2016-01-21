@@ -28,6 +28,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var authorLabel: UILabel!
     
     override func viewDidLoad() {
         SwiftSpinner.hide()
@@ -50,10 +51,10 @@ class DetailViewController: UIViewController {
         navTitle.textColor=UIColor.whiteColor()
         navTitle.font=UIFont(name: "Roboto-Medium", size: 20)
         navTitle.text="Detail Page"
-        print(bodyToPass)
         textViewDemo.text = bodyToPass.stripHTML()
         textViewDemo.font = UIFont(name: "Helvetica-Light", size: CGFloat(15))
         titleLabel.text = titleToPass
+        authorLabel.text = "By \(authorToPass)"
         getImage(imageToPass) {image in
             self.imageView.image = image
         }

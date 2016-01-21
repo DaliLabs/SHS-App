@@ -49,7 +49,7 @@ class PlannerVC: UITableViewController {
             if(numOfViewWillAppear == 0)
             {
         
-                if let _ = NSKeyedUnarchiver.unarchiveObjectWithData(data2)
+                if let x = NSKeyedUnarchiver.unarchiveObjectWithData(data2)
                 {
                     self.sortedSections = NSKeyedUnarchiver.unarchiveObjectWithData(data2) as! [String]
                     self.sections = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! Dictionary
