@@ -32,6 +32,7 @@ extension UIView {
     
 }
 
+var loaded : Bool = false
 
 class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, KenBurnsViewDelegate {
     
@@ -48,66 +49,69 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
 
     
     override func viewWillAppear(animated: Bool) {
-        tableView.delegate = self
-        tableView.dataSource = self
-        var date = NSDate()
-        var calendar = NSCalendar.currentCalendar()
-        var components = calendar.components(NSCalendarUnit.Year.union(NSCalendarUnit.Minute).union(NSCalendarUnit.Hour).union(NSCalendarUnit.Month).union(NSCalendarUnit.Day).union(NSCalendarUnit.Second), fromDate: date)
-        self.month = components.month
-        self.year = components.year
-        
-        if(Reachability.isConnectedToNetwork())
+        if(loaded == false)
         {
-            getStoryNids("spotlight", count: "5") { nids in
-                dispatch_async(dispatch_get_main_queue()) {
-                    for(var i = 0; i < nids.count; i++)
-                    {
-                        getArticleForNid(nids[i] as! String) { article in
-                            dispatch_async(dispatch_get_main_queue()) {
-                                if(loadImages == true) {
-                                    getImage(article!.photoURL) { image in
-                                        imageArr.append(image!)
+            tableView.delegate = self
+            tableView.dataSource = self
+            var date = NSDate()
+            var calendar = NSCalendar.currentCalendar()
+            var components = calendar.components(NSCalendarUnit.Year.union(NSCalendarUnit.Minute).union(NSCalendarUnit.Hour).union(NSCalendarUnit.Month).union(NSCalendarUnit.Day).union(NSCalendarUnit.Second), fromDate: date)
+            self.month = components.month
+            self.year = components.year
+            
+            if(Reachability.isConnectedToNetwork())
+            {
+                getStoryNids("spotlight", count: "5") { nids in
+                    dispatch_async(dispatch_get_main_queue()) {
+                        for(var i = 0; i < nids.count; i++)
+                        {
+                            getArticleForNid(nids[i] as! String) { article in
+                                dispatch_async(dispatch_get_main_queue()) {
+                                    if(loadImages == true) {
+                                        getImage(article!.photoURL) { image in
+                                            imageArr.append(image!)
+                                        }
                                     }
-                                }
-                                if(spotlight_array.count == nids.count)
-                                {
-                                    loadImages = false
+                                    if(spotlight_array.count == nids.count)
+                                    {
+                                        loadImages = false
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
-            internetConnection = false
-            var query = PFQuery(className: "Calendar")
-            query.limit = 1000
-            query.findObjectsInBackgroundWithBlock {
-                (objects: [PFObject]?, error: NSError?) -> Void in
-                if error == nil {
-                    // The find succeeded.
-                    print("Successfully retrieved \(objects!.count) events.")
-                    // Do something with the found objects
-                    if let objects = objects as [PFObject]! {
-                        for object in objects {
-                            self.anouncementsEventsArray.addObject(object)
+                internetConnection = false
+                var query = PFQuery(className: "Calendar")
+                query.limit = 1000
+                query.findObjectsInBackgroundWithBlock {
+                    (objects: [PFObject]?, error: NSError?) -> Void in
+                    if error == nil {
+                        // The find succeeded.
+                        print("Successfully retrieved \(objects!.count) events.")
+                        // Do something with the found objects
+                        if let objects = objects as [PFObject]! {
+                            for object in objects {
+                                self.anouncementsEventsArray.addObject(object)
+                            }
+                            self.tableView.reloadData()
                         }
-                        self.tableView.reloadData()
+                        
+                    } else {
+                        // Log details of the failure
+                        print("hello?")
+                        print("Error: \(error!) \(error!.userInfo)")
                     }
-                    
-                } else {
-                    // Log details of the failure
-                    print("hello?")
-                    print("Error: \(error!) \(error!.userInfo)")
                 }
+                loaded = true
+            }
+            else
+            {
+                let alert = UIAlertController(title: "No Internet", message: "We've detected that you aren't connected to the internet. Please close the app and try again. Note that some features will not work without internet access.", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
             }
         }
-        else
-        {
-            let alert = UIAlertController(title: "No Internet", message: "We've detected that you aren't connected to the internet. Please close the app and try again. Note that some features will not work without internet access.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
-        
         
     }
     
