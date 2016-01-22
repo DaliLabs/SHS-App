@@ -91,16 +91,16 @@
                                                 </progressView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="sFG-42-qMC" firstAttribute="centerX" secondItem="Mbb-p9-35h" secondAttribute="centerX" id="DDJ-d4-1nE"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="3XD-9D-67o" secondAttribute="bottom" constant="8.5" id="EQb-5b-T7F"/>
-                                                <constraint firstItem="sFG-42-qMC" firstAttribute="top" secondItem="Mbb-p9-35h" secondAttribute="topMargin" constant="-4" id="F16-LN-RYD"/>
-                                                <constraint firstItem="3XD-9D-67o" firstAttribute="leading" secondItem="Mbb-p9-35h" secondAttribute="leadingMargin" constant="45" id="RAu-UD-lwZ"/>
-                                                <constraint firstItem="sFG-42-qMC" firstAttribute="centerY" secondItem="tLI-kz-Xpp" secondAttribute="centerY" id="Tc6-Mp-bb9"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="sFG-42-qMC" secondAttribute="trailing" constant="52" id="Vh6-3L-HB9"/>
-                                                <constraint firstItem="3XD-9D-67o" firstAttribute="centerX" secondItem="sFG-42-qMC" secondAttribute="centerX" id="dqt-KI-eMj"/>
-                                                <constraint firstItem="3XD-9D-67o" firstAttribute="top" secondItem="sFG-42-qMC" secondAttribute="bottom" constant="8" symbolic="YES" id="v5E-ge-VrS"/>
-                                                <constraint firstItem="tLI-kz-Xpp" firstAttribute="top" secondItem="Mbb-p9-35h" secondAttribute="topMargin" constant="-2" id="vDJ-ck-8hs"/>
-                                                <constraint firstItem="tLI-kz-Xpp" firstAttribute="leading" secondItem="Mbb-p9-35h" secondAttribute="leadingMargin" id="zsi-1r-3Z5"/>
+                                                <constraint firstItem="sFG-42-qMC" firstAttribute="centerX" secondItem="3XD-9D-67o" secondAttribute="centerX" id="5U1-9e-RmJ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="sFG-42-qMC" secondAttribute="trailing" constant="52" id="Hn7-pq-YBb"/>
+                                                <constraint firstItem="tLI-kz-Xpp" firstAttribute="leading" secondItem="Mbb-p9-35h" secondAttribute="leadingMargin" id="WCK-cV-EIi"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="3XD-9D-67o" secondAttribute="bottom" constant="8.5" id="X9c-Uh-Cfi"/>
+                                                <constraint firstItem="3XD-9D-67o" firstAttribute="top" secondItem="sFG-42-qMC" secondAttribute="bottom" constant="8" symbolic="YES" id="bNG-ZR-BSx"/>
+                                                <constraint firstItem="tLI-kz-Xpp" firstAttribute="top" secondItem="Mbb-p9-35h" secondAttribute="topMargin" constant="-2" id="clG-g9-idH"/>
+                                                <constraint firstItem="sFG-42-qMC" firstAttribute="centerY" secondItem="tLI-kz-Xpp" secondAttribute="centerY" id="gae-5F-Efa"/>
+                                                <constraint firstItem="3XD-9D-67o" firstAttribute="centerX" secondItem="Mbb-p9-35h" secondAttribute="centerX" id="lRY-qu-llC"/>
+                                                <constraint firstItem="3XD-9D-67o" firstAttribute="leading" secondItem="Mbb-p9-35h" secondAttribute="leadingMargin" constant="45" id="lT0-aP-AIc"/>
+                                                <constraint firstItem="sFG-42-qMC" firstAttribute="top" secondItem="Mbb-p9-35h" secondAttribute="topMargin" constant="-4" id="pab-MU-lRf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
