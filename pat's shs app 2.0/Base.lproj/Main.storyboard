@@ -362,7 +362,7 @@
                                             <constraint firstAttribute="height" constant="248" id="D3R-Xe-RBn"/>
                                         </constraints>
                                     </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Body" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQN-P6-G2P">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Body" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQN-P6-G2P">
                                         <rect key="frame" x="0.0" y="248" width="320" height="488"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -814,7 +814,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Body" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6z-Xi-kMV">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Body" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6z-Xi-kMV">
                                         <rect key="frame" x="0.0" y="136" width="320" height="537"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
