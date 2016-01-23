@@ -31,6 +31,7 @@ var bodyToPass : String = ""
 var imageToPass : String = ""
 var titleToPass : String = ""
 var authorToPass : String = ""
+var sectionToPass : String = ""
 var spotlight_array : [Article] = []
 var news_array : [Article] = []
 var sports_array : [Article] = []
@@ -416,32 +417,39 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
         //normalDetail.transitioningDelegate = transitionManager;
         switch (self.tag) {
         case 1:
+            sectionToPass = "Spotlight"
             authorToPass = spotlight_array[indexPath.row].author
             bodyToPass = spotlight_array[indexPath.row].body
             titleToPass = spotlight_array[indexPath.row].title
             imageToPass = spotlight_array[indexPath.row].photoURL
             appDelegate.walkthrough?.presentViewController(detail, animated: true, completion: nil)
         case 2:
+            sectionToPass = "News"
             authorToPass = news_array[indexPath.row].author
             bodyToPass = news_array[indexPath.row].body
             titleToPass = news_array[indexPath.row].title
         case 3:
+            sectionToPass = "Sports"
             authorToPass = sports_array[indexPath.row].author
             bodyToPass = sports_array[indexPath.row].body
             titleToPass = sports_array[indexPath.row].title
         case 4:
+            sectionToPass = "Opinion"
             authorToPass = opinion_array[indexPath.row].author
             bodyToPass = opinion_array[indexPath.row].body
             titleToPass = opinion_array[indexPath.row].title
         case 5:
+            sectionToPass = "Columns"
             authorToPass = columns_array[indexPath.row].author
             bodyToPass = columns_array[indexPath.row].body
             titleToPass = columns_array[indexPath.row].title
         case 6:
+            sectionToPass = "Features"
             authorToPass = features_array[indexPath.row].author
             bodyToPass = features_array[indexPath.row].body
             titleToPass = features_array[indexPath.row].title
         default:
+            sectionToPass = "News"
             authorToPass = news_array[indexPath.row].author
             bodyToPass = news_array[indexPath.row].body
             titleToPass = news_array[indexPath.row].title
@@ -462,8 +470,6 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
         trans = CGPointMake(scrollView.contentOffset.x, scrollView.contentOffset.y);
         appDelegate.walkthrough!.scrollYAxis(scrollView.contentOffset.y, translation: trans)
     }
-    
-    
     
     
 }

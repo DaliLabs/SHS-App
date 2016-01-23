@@ -24,7 +24,7 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if self.textField.text?.characters.count > 0 {
-            self.assignment = Assignment(name: self.textField.text!, dueDate : self.datePickerChanged(dueDatePicker))
+            self.assignment = Assignment(name: self.textField.text!, dueDate : ("Due \(self.datePickerChanged(dueDatePicker))"))
         }
     }
     

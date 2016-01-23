@@ -17,12 +17,8 @@ class NewsCellTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        //titleNews.font=UIFont(name: "Roboto-Medium", size: 18)
         descNews.font=UIFont(name: "Roboto-Medium", size: 14)
         descNews.textColor=UIColor.lightGrayColor()
-        //headerImage.clipsToBounds=true
-        //headerImage.contentMode=UIViewContentMode.ScaleAspectFill
-        
         middleView.layer.shadowColor=UIColor.blackColor().CGColor
         middleView.layer.shadowRadius = 8.0
         middleView.layer.shadowOpacity  = 1.0
