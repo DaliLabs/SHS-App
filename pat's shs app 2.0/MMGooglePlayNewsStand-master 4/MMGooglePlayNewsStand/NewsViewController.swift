@@ -313,7 +313,7 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
         case 1:
             if(news_array.count == 0)
             {
-                self.moreStoriesButton.setTitle("Load Stories...", forState: UIControlState.Normal)
+                self.moreStoriesButton.setTitle("Click to Load Stories...", forState: UIControlState.Normal)
             }
             else
             {
@@ -323,51 +323,51 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
         case 2:
             if(news_array.count == 0)
             {
-                self.moreStoriesButton.setTitle("Load Stories...", forState: UIControlState.Normal)
+                self.moreStoriesButton.setTitle("Click to Load Stories...", forState: UIControlState.Normal)
             }
             else
             {
-                self.moreStoriesButton.setTitle("Load More Stories...", forState: UIControlState.Normal)
+                self.moreStoriesButton.setTitle("Click to Load More Stories...", forState: UIControlState.Normal)
             }
             return news_array.count
         case 3:
             if(sports_array.count == 0)
             {
-                self.moreStoriesButton.setTitle("Load Stories...", forState: UIControlState.Normal)
+                self.moreStoriesButton.setTitle("Click to Load Stories...", forState: UIControlState.Normal)
             }
             else
             {
-                self.moreStoriesButton.setTitle("Load More Stories...", forState: UIControlState.Normal)
+                self.moreStoriesButton.setTitle("Click to Load More Stories...", forState: UIControlState.Normal)
             }
             return sports_array.count
         case 4:
             if(opinion_array.count == 0)
             {
-                self.moreStoriesButton.setTitle("Load Stories...", forState: UIControlState.Normal)
+                self.moreStoriesButton.setTitle("Click to Load Stories...", forState: UIControlState.Normal)
             }
             else
             {
-                self.moreStoriesButton.setTitle("Load More Stories...", forState: UIControlState.Normal)
+                self.moreStoriesButton.setTitle("Click to Load More Stories...", forState: UIControlState.Normal)
             }
             return opinion_array.count
         case 5:
             if(columns_array.count == 0)
             {
-                self.moreStoriesButton.setTitle("Load Stories...", forState: UIControlState.Normal)
+                self.moreStoriesButton.setTitle("Click to Load Stories...", forState: UIControlState.Normal)
             }
             else
             {
-                self.moreStoriesButton.setTitle("Load More Stories...", forState: UIControlState.Normal)
+                self.moreStoriesButton.setTitle("Click to Load More Stories...", forState: UIControlState.Normal)
             }
             return columns_array.count
         case 6:
             if(features_array.count == 0)
             {
-                self.moreStoriesButton.setTitle("Load Stories...", forState: UIControlState.Normal)
+                self.moreStoriesButton.setTitle("Click to Load Stories...", forState: UIControlState.Normal)
             }
             else
             {
-                self.moreStoriesButton.setTitle("Load More Stories...", forState: UIControlState.Normal)
+                self.moreStoriesButton.setTitle("Click to Load More Stories...", forState: UIControlState.Normal)
             }
             return features_array.count
         default:

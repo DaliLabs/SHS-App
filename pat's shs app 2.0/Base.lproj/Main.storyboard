@@ -84,11 +84,6 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3XD-9D-67o">
-                                                    <rect key="frame" x="53" y="37" width="495" height="2"/>
-                                                    <color key="tintColor" red="0.87236635659999995" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="trackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                </progressView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFG-42-qMC">
                                                     <rect key="frame" x="60" y="4" width="480" height="25"/>
                                                     <constraints>
@@ -98,15 +93,21 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3XD-9D-67o">
+                                                    <rect key="frame" x="53" y="37" width="495" height="2"/>
+                                                    <color key="tintColor" red="0.87236635659999995" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="trackTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </progressView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="3XD-9D-67o" firstAttribute="centerX" secondItem="sFG-42-qMC" secondAttribute="centerX" id="3ng-dq-F4P"/>
                                                 <constraint firstItem="sFG-42-qMC" firstAttribute="baseline" secondItem="tLI-kz-Xpp" secondAttribute="baseline" id="9Rr-lb-qh5"/>
+                                                <constraint firstItem="3XD-9D-67o" firstAttribute="leading" secondItem="Mbb-p9-35h" secondAttribute="leadingMargin" constant="45" id="E0c-02-32R"/>
                                                 <constraint firstItem="sFG-42-qMC" firstAttribute="centerX" secondItem="Mbb-p9-35h" secondAttribute="centerX" id="Eb4-1I-QMi"/>
-                                                <constraint firstItem="sFG-42-qMC" firstAttribute="centerX" secondItem="3XD-9D-67o" secondAttribute="centerX" id="FSc-HU-Gcg"/>
                                                 <constraint firstItem="sFG-42-qMC" firstAttribute="top" secondItem="Mbb-p9-35h" secondAttribute="topMargin" constant="-4" id="RvM-aU-QAI"/>
                                                 <constraint firstItem="sFG-42-qMC" firstAttribute="leading" secondItem="tLI-kz-Xpp" secondAttribute="trailing" constant="10" id="SgY-tO-oEY"/>
-                                                <constraint firstItem="3XD-9D-67o" firstAttribute="top" secondItem="sFG-42-qMC" secondAttribute="bottom" constant="8" symbolic="YES" id="gbz-84-XLg"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="sFG-42-qMC" secondAttribute="trailing" constant="52" id="ioD-ep-0Ae"/>
+                                                <constraint firstItem="3XD-9D-67o" firstAttribute="top" secondItem="sFG-42-qMC" secondAttribute="bottom" constant="8" symbolic="YES" id="wsN-xd-rBx"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -173,7 +174,7 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bJ4-ko-Z07" id="qDB-C5-U6A">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ghf-Jz-g9w">
@@ -586,7 +587,7 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bhb-Yl-3MA" id="ksO-RS-YgT">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tyq-BH-dIh">
@@ -656,7 +657,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAL-UR-H7y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3131" y="-1071"/>
+            <point key="canvasLocation" x="-3191" y="-1072"/>
         </scene>
         <!--My Assignments-->
         <scene sceneID="3Fa-sI-1n3">
@@ -671,7 +672,7 @@
                                 <rect key="frame" x="0.0" y="86" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DYt-Oq-Qmx" id="g48-xo-Pxa">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration"/>
@@ -695,7 +696,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cxx-0Z-ZIy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2576.25" y="-1071.1267605633802"/>
+            <point key="canvasLocation" x="-2543" y="-1072"/>
         </scene>
         <!--Add Assignment-->
         <scene sceneID="gIO-vd-xwK">

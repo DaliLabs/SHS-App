@@ -259,7 +259,6 @@ class BellTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         else if(components.weekday == 3){
             
             for(var i=0; i<actualTimes.count*2; i=i+2){
-                print(i)
                 if(totalCurrMinutes >= tuesdayMinutesTotal[i] && totalCurrMinutes < tuesdayMinutesTotal[i+1]){
                     inPeriod = true
                     if(i<=1){

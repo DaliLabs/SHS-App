@@ -3,8 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -27,25 +25,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THE SHS APP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9xl-1N-xfb">
-                                <rect key="frame" x="39" y="377" width="242" height="72"/>
+                                <rect key="frame" x="39" y="439" width="242" height="72"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="72" id="mqO-xF-KeM"/>
+                                    <constraint firstAttribute="height" constant="72" id="1zX-J2-TZs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="34"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRESENTS:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gvj-Gh-a7i">
-                                <rect key="frame" x="39" y="140" width="242" height="72"/>
+                                <rect key="frame" x="39" y="85" width="242" height="72"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="72" id="bpZ-k1-T3J"/>
+                                    <constraint firstAttribute="height" constant="72" id="c7a-lN-xNj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="30"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHS APP DEV" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4lj-8V-FPL">
-                                <rect key="frame" x="39" y="103" width="242" height="72"/>
+                                <rect key="frame" x="39" y="54" width="242" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="S5e-m4-8Ww"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="30"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -56,23 +57,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4lj-8V-FPL" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="83" id="3EX-Q8-pY2"/>
-                            <constraint firstItem="9xl-1N-xfb" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="Ad2-Yp-r4U"/>
-                            <constraint firstItem="4lj-8V-FPL" firstAttribute="trailing" secondItem="Gvj-Gh-a7i" secondAttribute="trailing" id="BHe-9K-Ch2"/>
-                            <constraint firstItem="4lj-8V-FPL" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="23" id="LRL-zp-my7"/>
-                            <constraint firstItem="Gvj-Gh-a7i" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="LuN-4k-8te"/>
-                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="4" id="Mqf-Ul-nqM"/>
-                            <constraint firstItem="Gvj-Gh-a7i" firstAttribute="centerX" secondItem="iAR-CH-7cX" secondAttribute="centerX" id="UcA-Uy-7rs"/>
-                            <constraint firstItem="iAR-CH-7cX" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="104" id="VXS-1A-EQ5"/>
-                            <constraint firstItem="4lj-8V-FPL" firstAttribute="leading" secondItem="Gvj-Gh-a7i" secondAttribute="leading" id="ezN-13-Iyb"/>
-                            <constraint firstItem="Gvj-Gh-a7i" firstAttribute="trailing" secondItem="9xl-1N-xfb" secondAttribute="trailing" id="fTy-EG-lYE"/>
-                            <constraint firstItem="4lj-8V-FPL" firstAttribute="baseline" secondItem="Gvj-Gh-a7i" secondAttribute="firstBaseline" id="iBm-Ia-NMw"/>
-                            <constraint firstItem="Gvj-Gh-a7i" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="120" id="jbN-WX-Ufa"/>
-                            <constraint firstItem="Gvj-Gh-a7i" firstAttribute="leading" secondItem="9xl-1N-xfb" secondAttribute="leading" id="nYI-9o-V3N"/>
-                            <constraint firstItem="iAR-CH-7cX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="s2B-wp-wHE"/>
-                            <constraint firstItem="obG-Y5-kRd" firstAttribute="top" secondItem="iAR-CH-7cX" secondAttribute="bottom" constant="83" id="sjH-YE-dIg"/>
-                            <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" symbolic="YES" id="uZh-vJ-fAI"/>
-                            <constraint firstItem="obG-Y5-kRd" firstAttribute="top" secondItem="9xl-1N-xfb" secondAttribute="bottom" constant="78" id="zwe-nY-q1M"/>
+                            <constraint firstItem="Gvj-Gh-a7i" firstAttribute="leading" secondItem="4lj-8V-FPL" secondAttribute="leading" id="BrQ-VR-ei3"/>
+                            <constraint firstItem="iAR-CH-7cX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ECe-dr-2am"/>
+                            <constraint firstItem="iAR-CH-7cX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Oc0-fN-TVc"/>
+                            <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" symbolic="YES" id="Pkc-ym-RNE"/>
+                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="4" id="RJO-Qn-ZsA"/>
+                            <constraint firstItem="obG-Y5-kRd" firstAttribute="top" secondItem="9xl-1N-xfb" secondAttribute="bottom" constant="16" id="ahX-Ga-495"/>
+                            <constraint firstItem="obG-Y5-kRd" firstAttribute="centerX" secondItem="9xl-1N-xfb" secondAttribute="centerX" id="b6L-Gj-Rg9"/>
+                            <constraint firstItem="4lj-8V-FPL" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="34" id="eXE-1q-enQ"/>
+                            <constraint firstItem="Gvj-Gh-a7i" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="65" id="gam-c2-YBP"/>
+                            <constraint firstItem="iAR-CH-7cX" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="104" id="iBM-aI-rPe"/>
+                            <constraint firstItem="4lj-8V-FPL" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="23" id="jFl-T6-Tzk"/>
+                            <constraint firstItem="4lj-8V-FPL" firstAttribute="trailing" secondItem="Gvj-Gh-a7i" secondAttribute="trailing" id="kYv-fU-DL0"/>
+                            <constraint firstItem="obG-Y5-kRd" firstAttribute="top" secondItem="iAR-CH-7cX" secondAttribute="bottom" constant="83" id="oXs-Xb-O1O"/>
+                            <constraint firstItem="Gvj-Gh-a7i" firstAttribute="leading" secondItem="9xl-1N-xfb" secondAttribute="leading" id="p2N-T0-t5V"/>
+                            <constraint firstItem="Gvj-Gh-a7i" firstAttribute="trailing" secondItem="9xl-1N-xfb" secondAttribute="trailing" id="s6b-TI-7xe"/>
+                            <constraint firstItem="iAR-CH-7cX" firstAttribute="centerX" secondItem="Gvj-Gh-a7i" secondAttribute="centerX" id="spw-aG-JpD"/>
                         </constraints>
                     </view>
                 </viewController>

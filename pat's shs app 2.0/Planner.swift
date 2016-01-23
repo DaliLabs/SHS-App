@@ -8,11 +8,6 @@
 
 import UIKit
 
-/*
-NSUserDefaults.standardUserDefaults().setInteger(highScore, forKey: "highscore")
-NSUserDefaults.standardUserDefaults().synchronize()
-*/
-
 protocol JSONAble {}
 
 extension JSONAble {
@@ -48,8 +43,8 @@ class PlannerVC: UITableViewController {
         do{
             if(numOfViewWillAppear == 0)
             {
-        
-                if let x = NSKeyedUnarchiver.unarchiveObjectWithData(data2)
+                // empty Dictionary is 42 bytes
+                if data2.length != 42
                 {
                     self.sortedSections = NSKeyedUnarchiver.unarchiveObjectWithData(data2) as! [String]
                     self.sections = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! Dictionary

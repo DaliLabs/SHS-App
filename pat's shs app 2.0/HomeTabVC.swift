@@ -58,8 +58,7 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
             var components = calendar.components(NSCalendarUnit.Year.union(NSCalendarUnit.Minute).union(NSCalendarUnit.Hour).union(NSCalendarUnit.Month).union(NSCalendarUnit.Day).union(NSCalendarUnit.Second), fromDate: date)
             self.month = components.month
             self.year = components.year
-            print(getDayOfWeek("01-22-2016"))
-            print("pussy")
+
             if(Reachability.isConnectedToNetwork())
             {
                 getStoryNids("spotlight", count: "5") { nids in
@@ -111,7 +110,6 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
                         
                     } else {
                         // Log details of the failure
-                        print("hello?")
                         print("Error: \(error!) \(error!.userInfo)")
                     }
                 }
@@ -174,7 +172,6 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
         if(month <= 6){
             self.monthsLeft = 7 - month
         }
-        print(monthsLeft)
         return self.monthsLeft
         
     }
@@ -213,7 +210,6 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
         
         for (var i=0; i<anouncementsEventsArray.count; i++)
         {
-            print(self.anouncementsEventsArray[i].objectForKey("Month") as! String)
             if(StringMonthToNumMonth(monthsArray[indexOfCurMonth+section])
                 == Int(self.anouncementsEventsArray[i].objectForKey("Month") as! String))
             {
