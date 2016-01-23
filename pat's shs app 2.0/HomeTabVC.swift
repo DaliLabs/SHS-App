@@ -28,86 +28,103 @@ extension UIView {
     class func instanceFromNib() -> UIView {
         return UINib(nibName: "aboutView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! UIView
     }
-  
     
 }
 
+var loaded : Bool = false
 
 class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, KenBurnsViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var aboutButton: UIButton!
+    @IBOutlet weak var aboutButton: UIBarButtonItem!
     var anouncementsEventsArray = NSMutableArray()
-    @IBOutlet weak var gradesButton: UIButton!
+    @IBOutlet weak var gradesButton: UIBarButtonItem!
     var year = 0
     var month = 0
     var monthsLeft = 0
     var monthsArray = ["August", "September", "October", "November", "December",
         "January", "February", "March", "April", "May", "June", "July"]
+    var daysOfWeekPreloaded : [String] = []
     var popup : KLCPopup!
 
     
     override func viewWillAppear(animated: Bool) {
-        tableView.delegate = self
-        tableView.dataSource = self
-        var date = NSDate()
-        var calendar = NSCalendar.currentCalendar()
-        var components = calendar.components(NSCalendarUnit.Year.union(NSCalendarUnit.Minute).union(NSCalendarUnit.Hour).union(NSCalendarUnit.Month).union(NSCalendarUnit.Day).union(NSCalendarUnit.Second), fromDate: date)
-        self.month = components.month
-        self.year = components.year
-        
-        if(Reachability.isConnectedToNetwork())
+        if(loaded == false)
         {
-            getStoryNids("spotlight", count: "5") { nids in
-                dispatch_async(dispatch_get_main_queue()) {
-                    for(var i = 0; i < nids.count; i++)
-                    {
-                        getArticleForNid(nids[i] as! String) { article in
-                            dispatch_async(dispatch_get_main_queue()) {
-                                if(loadImages == true) {
-                                    getImage(article!.photoURL) { image in
-                                        imageArr.append(image!)
+            tableView.delegate = self
+            tableView.dataSource = self
+            var date = NSDate()
+            var calendar = NSCalendar.currentCalendar()
+            var components = calendar.components(NSCalendarUnit.Year.union(NSCalendarUnit.Minute).union(NSCalendarUnit.Hour).union(NSCalendarUnit.Month).union(NSCalendarUnit.Day).union(NSCalendarUnit.Second), fromDate: date)
+            self.month = components.month
+            self.year = components.year
+            print(getDayOfWeek("01-22-2016"))
+            print("pussy")
+            if(Reachability.isConnectedToNetwork())
+            {
+                getStoryNids("spotlight", count: "5") { nids in
+                    dispatch_async(dispatch_get_main_queue()) {
+                        for(var i = 0; i < nids.count; i++)
+                        {
+                            getArticleForNid(nids[i] as! String) { article in
+                                dispatch_async(dispatch_get_main_queue()) {
+                                    if(loadImages == true) {
+                                        getImage(article!.photoURL) { image in
+                                            imageArr.append(image!)
+                                        }
                                     }
-                                }
-                                if(spotlight_array.count == nids.count)
-                                {
-                                    loadImages = false
+                                    if(spotlight_array.count == nids.count)
+                                    {
+                                        loadImages = false
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
-            internetConnection = false
-            var query = PFQuery(className: "Calendar")
-            query.limit = 1000
-            query.findObjectsInBackgroundWithBlock {
-                (objects: [PFObject]?, error: NSError?) -> Void in
-                if error == nil {
-                    // The find succeeded.
-                    print("Successfully retrieved \(objects!.count) events.")
-                    // Do something with the found objects
-                    if let objects = objects as [PFObject]! {
-                        for object in objects {
-                            self.anouncementsEventsArray.addObject(object)
+                internetConnection = false
+                var query = PFQuery(className: "Calendar")
+                query.limit = 1000
+                query.findObjectsInBackgroundWithBlock {
+                    (objects: [PFObject]?, error: NSError?) -> Void in
+                    if error == nil {
+                        // The find succeeded.
+                        print("Successfully retrieved \(objects!.count) events.")
+                        // Do something with the found objects
+                        if let objects = objects as [PFObject]! {
+                            for object in objects {
+                                self.anouncementsEventsArray.addObject(object)
+                            }
+                            var daysOfWeek = ["", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+                            //load days of the week (to avoid performance issues)
+                            for(var i = 0; i < self.anouncementsEventsArray.count; i++)
+                            {
+                                let dayOfTheWeek_ = self.anouncementsEventsArray[i].objectForKey("Start") as! String
+                                let finalDayOfTheWeek = self.returnDayOfWeek(dayOfTheWeek_)
+                                self.daysOfWeekPreloaded.append(daysOfWeek[getDayOfWeek(finalDayOfTheWeek)])
+                                if(i == self.anouncementsEventsArray.count - 1)
+                                {
+                                    self.tableView.reloadData()
+                                }
+                            }
                         }
-                        self.tableView.reloadData()
+                        
+                    } else {
+                        // Log details of the failure
+                        print("hello?")
+                        print("Error: \(error!) \(error!.userInfo)")
                     }
-                    
-                } else {
-                    // Log details of the failure
-                    print("hello?")
-                    print("Error: \(error!) \(error!.userInfo)")
                 }
+
+                loaded = true
+            }
+            else
+            {
+                let alert = UIAlertController(title: "No Internet", message: "We've detected that you aren't connected to the internet. Please close the app and try again. Note that some features will not work without internet access.", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
             }
         }
-        else
-        {
-            let alert = UIAlertController(title: "No Internet", message: "We've detected that you aren't connected to the internet. Please close the app and try again. Note that some features will not work without internet access.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
-        
         
     }
     
@@ -183,7 +200,7 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 30
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -271,11 +288,10 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
     }
     
     func returnDayOfWeek(inputString: String) -> String {
-        let stringOfDate = inputString[inputString.startIndex.advancedBy(3)..<inputString.startIndex.advancedBy(5)]
+        let stringOfDate = inputString[inputString.startIndex.advancedBy(1)..<inputString.startIndex.advancedBy(10)]
         
-        return ""
+        return stringOfDate
     }
-    
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -290,9 +306,8 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
             cell.locationLabel.text = "Location Unavailable"
         }
         cell.dayOfMonthLabel.text = String(returnDayOfMonth(self.anouncementsEventsArray[indexPath.row].objectForKey("Start")! as! String))
-        
         cell.timeLabel.text = returnStartTime(self.anouncementsEventsArray[indexPath.row].objectForKey("Start")! as! String)
-        
+        cell.dayOfTheWeekLabel.text = daysOfWeekPreloaded[indexPath.row]
         return cell
         
     }

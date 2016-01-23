@@ -204,34 +204,17 @@ func randomInt(min: Int, max:Int) -> Int {
     return min + Int(arc4random_uniform(UInt32(max - min + 1)))
 }
 
-//number is a workaround - get "Immutable" error if passing article straight through
-func loadArticles(art : [Article], type : String , completion : ((done : Bool?) -> Void))
-{
-    
-    var currentArt = art
-    print(art)
-    getStoryNids(type, count: "10") { nids in
-        dispatch_async(dispatch_get_main_queue()) {
-            for(var i = 0; i < nids.count; i++)
-            {
-                getArticleForNid(nids[i] as! String) { article in
-                    dispatch_async(dispatch_get_main_queue()) {
-                        currentArt.append(article!)
-                        getImage(article!.photoURL) { image in
-                            imageArr.append(image!)
-                        }
-                        print(currentArt)
-                        if((currentArt.count == nids.count) && (type == "features"))
-                        {
-                            completion(done: true)
-                        }
-                    }
-                }
-            }
-            
-        }
-    }
+
+func getDayOfWeek(today:String) -> Int {
+    let formatter  = NSDateFormatter()
+    formatter.dateFormat = "MM-dd-yyyy"
+    let todayDate = formatter.dateFromString(today)!
+    let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+    let myComponents = myCalendar.components(.Weekday, fromDate: todayDate)
+    let weekDay = myComponents.weekday
+    return weekDay
 }
+
 
 
 

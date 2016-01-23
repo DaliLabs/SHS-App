@@ -44,6 +44,7 @@ class listViewController: UIViewController, UITableViewDelegate, UITableViewData
     var filteredStaff = [staffMember]()
     
     override func viewWillAppear(animated: Bool) {
+
         if(Reachability.isConnectedToNetwork())
         {
             var query = PFQuery(className: "Staff")
@@ -94,8 +95,10 @@ class listViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.searchController.searchResultsUpdater = self
         self.searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
-        self.listView.tableHeaderView = searchController.searchBar
-        // Do any additional setup after loading the view.
+        self.listView.addSubview(self.searchController.searchBar)
+        self.searchController.searchBar.sizeToFit()
+        self.searchController.searchBar.frame.size.width = self.view.frame.size.width
+        
     }
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {

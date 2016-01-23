@@ -28,8 +28,7 @@ class NormalDetail: UIViewController {
         textViewDemo.scrollEnabled = true
         navBar.frame=CGRectMake(0, 0, self.view.bounds.width, 64)
         navBut.frame=CGRectMake(0, 16, 45, 45)
-        navTitle.frame=CGRectMake(55 , 20, self.view.bounds.width-50, 30)
-        
+        navTitle.frame=CGRectMake(55 , navBar.bounds.height / 2.75, self.view.bounds.width-70, 30)
         navBar.backgroundColor = UIColor(hexString: "673ab7")
         navBut.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         navBut.tintColor=UIColor.whiteColor()
@@ -37,7 +36,7 @@ class NormalDetail: UIViewController {
         navBut.addTarget(self, action: "dismiss", forControlEvents: UIControlEvents.TouchUpInside)
         navTitle.textColor=UIColor.whiteColor()
         navTitle.font=UIFont(name: "Roboto-Medium", size: 20)
-        navTitle.text="Detail Page"
+        navTitle.text="\(sectionToPass)"
         textViewDemo.text = bodyToPass.stripHTML()
         textViewDemo.font = UIFont(name: "Helvetica-Light", size: CGFloat(15))
         titleLabel.text = titleToPass
