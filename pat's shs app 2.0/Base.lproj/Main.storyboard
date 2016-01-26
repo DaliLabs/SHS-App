@@ -685,6 +685,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="My Assignments" id="YGj-Cr-A6Q">
+                        <barButtonItem key="backBarButtonItem" title="back" id="0v9-zv-kFn"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="rX3-ve-cVC">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -710,83 +711,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Type in your assignment." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgD-mv-CC2">
-                                <rect key="frame" x="20" y="96" width="560" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <datePicker contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Lop-JV-mWe">
-                                <rect key="frame" x="20" y="275" width="560" height="260"/>
-                                <date key="date" timeIntervalSinceReferenceDate="470270784.35114002">
-                                    <!--2015-11-26 22:46:24 +0000-->
-                                </date>
-                            </datePicker>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Assignment" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mum-A0-yP1">
-                                <rect key="frame" x="20" y="145" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7s-lN-sYO">
+                                <rect key="frame" x="20" y="449" width="560" height="50"/>
+                                <color key="backgroundColor" red="0.2736089874733082" green="0.81906960227272729" blue="0.41534381196377784" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Dtw-0f-WAO"/>
+                                    <constraint firstAttribute="width" constant="560" id="bd2-fh-hza"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                <state key="normal" title="Add Assignment">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="wko-5a-uR6" kind="unwind" unwindAction="unwindAndAddToList:" id="1ma-nL-r8H"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter New Assignment" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mum-A0-yP1">
+                                <rect key="frame" x="20" y="97" width="560" height="50"/>
+                                <color key="backgroundColor" red="0.91130050505050497" green="0.91130050505050497" blue="0.91130050505050497" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Choose the Due Date." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="av7-3Q-LEz">
-                                <rect key="frame" x="20" y="240" width="560" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Set Due Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E0q-ld-ody">
+                                <rect key="frame" x="20" y="165" width="560" height="50"/>
+                                <color key="backgroundColor" red="0.87236635659999995" green="0.49846861720000002" blue="0.50718919699999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldEditing:" destination="Zfi-gW-FJD" eventType="editingDidBegin" id="tDL-xO-7i5"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Lop-JV-mWe" firstAttribute="top" secondItem="av7-3Q-LEz" secondAttribute="bottom" constant="14" id="E67-hz-y5m"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="JgD-mv-CC2" secondAttribute="trailing" id="FAM-Go-lJB"/>
-                            <constraint firstItem="av7-3Q-LEz" firstAttribute="top" secondItem="Mum-A0-yP1" secondAttribute="bottom" constant="65" id="GZS-Bv-09o"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="JgD-mv-CC2" secondAttribute="leading" id="HkE-fE-0L6"/>
-                            <constraint firstItem="IhB-0m-hEz" firstAttribute="top" secondItem="Lop-JV-mWe" secondAttribute="bottom" constant="21" id="M30-uy-ndk"/>
-                            <constraint firstItem="Mum-A0-yP1" firstAttribute="top" secondItem="JgD-mv-CC2" secondAttribute="bottom" constant="28" id="QvS-r0-x8g"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="Mum-A0-yP1" secondAttribute="leading" id="SfU-zE-b5F"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="av7-3Q-LEz" secondAttribute="leading" id="Y1b-11-QMd"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Lop-JV-mWe" secondAttribute="trailing" id="YSl-0f-DYT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Mum-A0-yP1" secondAttribute="trailing" id="lYi-om-reP"/>
-                            <constraint firstItem="JgD-mv-CC2" firstAttribute="top" secondItem="Pey-0G-Csa" secondAttribute="bottom" constant="32" id="yvh-KD-SHR"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="av7-3Q-LEz" secondAttribute="trailing" id="z6c-lL-wpB"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="Lop-JV-mWe" secondAttribute="leading" id="zVX-s2-6HK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="F7s-lN-sYO" secondAttribute="trailing" id="7li-RW-sFz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="E0q-ld-ody" secondAttribute="trailing" id="QGK-w0-gGd"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="E0q-ld-ody" secondAttribute="leading" id="gw4-6V-SdJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Mum-A0-yP1" secondAttribute="trailing" id="r41-V9-4m2"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="F7s-lN-sYO" secondAttribute="leading" id="sF2-8B-QFn"/>
+                            <constraint firstItem="IhB-0m-hEz" firstAttribute="top" secondItem="F7s-lN-sYO" secondAttribute="bottom" constant="57" id="wpE-CF-faf"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Mum-A0-yP1" secondAttribute="leading" id="xwv-Oq-20Y"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Assignment" id="A79-eM-Fob">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="Bak-v2-9QV">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="11c-9u-vTk">
-                                <rect key="frame" x="20" y="7" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="wko-5a-uR6" kind="unwind" unwindAction="unwindToList:" id="tHw-by-YSU"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="ykG-zi-o9x">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wRh-s7-xgY">
-                                <rect key="frame" x="543" y="7" width="37" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Done">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="wko-5a-uR6" kind="unwind" unwindAction="unwindAndAddToList:" id="k2K-4s-ONm"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Add Assignment" id="A79-eM-Fob"/>
                     <connections>
-                        <outlet property="doneButton" destination="wRh-s7-xgY" id="0AU-kT-QT4"/>
-                        <outlet property="dueDatePicker" destination="Lop-JV-mWe" id="jXj-MN-djX"/>
-                        <outlet property="textField" destination="Mum-A0-yP1" id="ZUk-A1-OYF"/>
+                        <outlet property="bottomConstraint" destination="wpE-CF-faf" id="J5E-0K-94G"/>
+                        <outlet property="doneButton" destination="F7s-lN-sYO" id="HD8-OX-ybD"/>
+                        <outlet property="fakeTextField" destination="E0q-ld-ody" id="U1Q-TW-9EZ"/>
+                        <outlet property="textField" destination="Mum-A0-yP1" id="DdP-zG-DYq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cJz-Fe-P9x" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="wko-5a-uR6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1904" y="-1072"/>
+            <point key="canvasLocation" x="-1886" y="-1072"/>
         </scene>
         <!--Normal Detail-->
         <scene sceneID="gJZ-C3-9JQ">
