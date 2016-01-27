@@ -175,6 +175,12 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
         return self.monthsLeft
         
     }
+
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if let headerView = view as? UITableViewHeaderFooterView {
+            headerView.textLabel?.textAlignment = .Center
+        }
+    }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?{
         if(self.anouncementsEventsArray.count == 0)
@@ -304,6 +310,7 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
         cell.dayOfMonthLabel.text = String(returnDayOfMonth(self.anouncementsEventsArray[indexPath.row].objectForKey("Start")! as! String))
         cell.timeLabel.text = returnStartTime(self.anouncementsEventsArray[indexPath.row].objectForKey("Start")! as! String)
         cell.dayOfTheWeekLabel.text = daysOfWeekPreloaded[indexPath.row]
+        cell.userInteractionEnabled = false
         return cell
         
     }

@@ -51,7 +51,7 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="iphone5Launch" translatesAutoresizingMaskIntoConstraints="NO" id="iAR-CH-7cX">
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" image="iphone5Launch" translatesAutoresizingMaskIntoConstraints="NO" id="iAR-CH-7cX">
                                 <rect key="frame" x="8" y="124" width="304" height="320"/>
                             </imageView>
                         </subviews>

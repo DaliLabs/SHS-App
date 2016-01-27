@@ -155,6 +155,7 @@ class listViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.listView.deselectRowAtIndexPath(indexPath, animated: true)
         if searchController.active && searchController.searchBar.text != ""
         {
             self.selectedStaff = self.filteredStaff[indexPath.row]
@@ -163,7 +164,7 @@ class listViewController: UIViewController, UITableViewDelegate, UITableViewData
         {
         self.selectedStaff = self.staffMembers[indexPath.row]
         }
-        let optionMenu = UIAlertController(title: nil, message: "Choose an Option For - \(self.selectedStaff.name)", preferredStyle: .ActionSheet)
+        let optionMenu = UIAlertController(title: nil, message: "\(self.selectedStaff.name)", preferredStyle: .ActionSheet)
         let deleteAction = UIAlertAction(title: "Email Teacher", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             let url = NSURL(string : "mailto:\(self.selectedStaff.email)")
@@ -188,6 +189,8 @@ class listViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         //print(self.filteredStaff[indexPath.row])
     }
+    
+    
     /*
     // MARK: - Navigation
 
