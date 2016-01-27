@@ -64,6 +64,10 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDelegate {
         let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         self.bottomConstraint.constant = 30
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        textField.becomeFirstResponder()
+    }
 
     @IBAction func textFieldEditing(sender: UITextField) {
         datePickerView = UIDatePicker()

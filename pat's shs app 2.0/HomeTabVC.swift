@@ -178,7 +178,7 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
 
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         if let headerView = view as? UITableViewHeaderFooterView {
-            headerView.textLabel?.textAlignment = .Center
+            headerView.textLabel?.textAlignment = .Left
         }
     }
     
