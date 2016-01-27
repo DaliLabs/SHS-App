@@ -600,11 +600,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="My Assignments" id="YGj-Cr-A6Q">
-<<<<<<< HEAD
                         <barButtonItem key="backBarButtonItem" title="Back" id="0v9-zv-kFn"/>
-=======
-                        <barButtonItem key="backBarButtonItem" title="back" id="0v9-zv-kFn"/>
->>>>>>> origin/master
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="rX3-ve-cVC">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
