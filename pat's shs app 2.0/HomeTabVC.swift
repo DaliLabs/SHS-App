@@ -305,7 +305,7 @@ class HomeTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, K
             cell.locationLabel.text = locationLabel as? String
         }
         else{
-            cell.locationLabel.text = "Location Unavailable"
+            cell.locationLabel.text = ""
         }
         cell.dayOfMonthLabel.text = String(returnDayOfMonth(self.anouncementsEventsArray[indexPath.row].objectForKey("Start")! as! String))
         cell.timeLabel.text = returnStartTime(self.anouncementsEventsArray[indexPath.row].objectForKey("Start")! as! String)
