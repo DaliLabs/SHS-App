@@ -30,50 +30,54 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDelegate {
         }
     }
     
-    
     func datePickerChanged(datePicker:UIDatePicker) -> String {
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
         
-        var strDate = dateFormatter.stringFromDate(datePicker.date)
+        let strDate = dateFormatter.stringFromDate(datePicker.date)
         return strDate
     }
 
     func keyboardWillShow(notification: NSNotification) {
         var info = notification.userInfo!
-        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-
-        UIView.animateWithDuration(0.01, animations: { () -> Void in
-            self.bottomConstraint.constant = keyboardFrame.size.height - 30
-        })
+        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        print(keyboardFrame.height)
+        print(keyboardFrame.width)
+        print(keyboardFrame.size)
+        print(keyboardFrame.origin)
+        if(self.view.bounds.height == 480.0)
+        {
+            UIView.animateWithDuration(0.01, animations: { () -> Void in
+                self.bottomConstraint.constant = keyboardFrame.size.height - 60
+            })
+        }
+        else
+        {
+            UIView.animateWithDuration(0.01, animations: { () -> Void in
+                self.bottomConstraint.constant = keyboardFrame.size.height - 30
+            })
+        }
     }
 
     func keyboardWillHide(notification: NSNotification){
         var info = notification.userInfo!
-        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-
+        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         self.bottomConstraint.constant = 30
     }
 
     @IBAction func textFieldEditing(sender: UITextField) {
         datePickerView = UIDatePicker()
-
         datePickerView.datePickerMode = UIDatePickerMode.Date
-
         sender.inputView = datePickerView
-
         datePickerView.addTarget(self, action: Selector("datePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
     }
 
 
     func datePickerValueChanged(sender:UIDatePicker) {
-
+        
         let dateFormatter = NSDateFormatter()
-
         dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-
         dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
-
         fakeTextField.text = dateFormatter.stringFromDate(sender.date)
         
     }
@@ -87,16 +91,12 @@ class AddAssignmentViewController: UIViewController, UIPickerViewDelegate {
         fakeTextField.layer.cornerRadius = 10
         self.bottomConstraint.constant = 30
 
-
-       
-
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
-
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
     }
-
+    
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self);
     }
