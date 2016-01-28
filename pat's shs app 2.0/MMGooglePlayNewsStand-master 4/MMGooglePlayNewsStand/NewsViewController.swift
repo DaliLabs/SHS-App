@@ -27,6 +27,7 @@ func uniq<S : SequenceType, T : Hashable where S.Generator.Element == T>(source:
     return buffer
 }
 
+
 var bodyToPass : String = ""
 var imageToPass : String = ""
 var titleToPass : String = ""
@@ -39,7 +40,7 @@ var opinion_array : [Article] = []
 var columns_array : [Article] = []
 var features_array : [Article] = []
 var imageArr : [AnyObject] = []
-
+let channelUrl = "https://www.youtube.com/channel/UCZteJ4RbOyTCRrAVOeV4xwQ"
 var loadImages : Bool = true
 
 class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,MMPlayPageScroll ,UIScrollViewDelegate, MMPlayPageControllerDelegate{
@@ -175,6 +176,14 @@ class MMSampleTableViewController: UIViewController,UITableViewDataSource,UITabl
                                     spotlight_array.append(article!)
                                     if(spotlight_array.count == nids.count)
                                     {
+                                        // add SHS TV Youtube URL
+                                        for(var i = 0; i < spotlight_array.count; i++)
+                                        {
+                                            if((spotlight_array[i].body.rangeOfString("broadcast")) != nil)
+                                            {
+                                                spotlight_array[i].body = channelUrl
+                                            }
+                                        }
                                         self.tableView.reloadData()
                                         SwiftSpinner.hide()
                                     }

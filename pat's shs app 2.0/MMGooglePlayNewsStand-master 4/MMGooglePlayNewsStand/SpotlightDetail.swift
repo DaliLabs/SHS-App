@@ -17,22 +17,42 @@ extension String {
 }
 
 
+extension String {
+    func isEmail() -> Bool {
+        let regex = try! NSRegularExpression(pattern: "2016",
+            options: [.CaseInsensitive])
+        
+        return regex.firstMatchInString(self, options:[],
+            range: NSMakeRange(0, utf16.count)) != nil
+    }
+}
 
-class DetailViewController: UIViewController {
-    
+class DetailViewController: UIViewController, UITextViewDelegate {
+    @IBOutlet weak var shsTvButton: UIButton!
     @IBOutlet weak var textViewDemo: UITextView!
     @IBOutlet weak var textHeightConstraint: NSLayoutConstraint!
     var navBar = UIView()
     var dismissFrame = CGRectMake(0, 0, 0, 0)
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
+    var modalClicked : Bool = false
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var authorLabel: UILabel!
     
     override func viewWillAppear(animated: Bool) {
+        self.shsTvButton.hidden = true
         textViewDemo.scrollRangeToVisible(NSMakeRange(0, 0))
+        self.textViewDemo.delegate = self
+        self.textViewDemo.dataDetectorTypes = UIDataDetectorTypes.Link
         self.textViewDemo.setContentOffset(CGPointZero, animated: false)
+        if(bodyToPass.rangeOfString("\(channelUrl)") != nil || modalClicked == true)
+        {
+            bodyToPass = ""
+            self.textViewDemo.text = ""
+            self.shsTvButton.hidden = false
+        }
     }
     
     
@@ -53,7 +73,10 @@ class DetailViewController: UIViewController {
         navTitle.textColor=UIColor.whiteColor()
         navTitle.font=UIFont(name: "Roboto-Medium", size: 20)
         navTitle.text = "\(sectionToPass)"
-        textViewDemo.text = bodyToPass.stripHTML()
+        if(bodyToPass.rangeOfString("\(channelUrl)") == nil)
+        {
+            textViewDemo.text = bodyToPass.stripHTML()
+        }
         textViewDemo.font = UIFont(name: "Helvetica-Light", size: CGFloat(15))
         textViewDemo.scrollIndicatorInsets = UIEdgeInsetsZero
         titleLabel.text = titleToPass
@@ -67,6 +90,11 @@ class DetailViewController: UIViewController {
         
     }
     
+    @IBAction func shsTvButtonClicked(sender: AnyObject) {
+        let webVC = SwiftModalWebVC(urlString: "\(channelUrl)")
+        modalClicked = true
+        self.presentViewController(webVC, animated: true, completion: nil)
+    }
     
     func dismiss(){
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -76,7 +104,6 @@ class DetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     /*
     // MARK: - Navigation
